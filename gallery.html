@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Gallery - 2024 Walle Pals photo and video collection">
+    <title>Gallery - 2024 Walle Pals</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/favicon.ico">
+    <meta name="theme-color" content="#4facfe">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/gallery.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="assets/favicon.ico" alt="Walle Pals Logo" class="nav-logo">
+                <h1 class="brand-title">2024 Walle Pals</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#wall-of-frames" class="nav-link">Friends</a></li>
+                <li><a href="memories.html" class="nav-link">Memories</a></li>
+                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Gallery Hero Section -->
+        <section class="gallery-hero">
+            <div class="container">
+                <div class="hero-content animate-fade-in-up">
+                    <h1 class="hero-title">Our Gallery</h1>
+                    <p class="hero-subtitle">Capturing moments, preserving memories, celebrating friendship</p>
+                </div>
+                <div class="gallery-floating-elements">
+                    <div class="floating-camera">📸</div>
+                    <div class="floating-video">🎥</div>
+                    <div class="floating-heart">💝</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Navigation -->
+        <section class="gallery-nav-section">
+            <div class="container">
+                <div class="gallery-tabs">
+                    <button class="gallery-tab active" data-tab="public">
+                        <span class="tab-icon">🌍</span>
+                        <span class="tab-text">Public Gallery</span>
+                    </button>
+                    <button class="gallery-tab" data-tab="private">
+                        <span class="tab-icon">🔒</span>
+                        <span class="tab-text">Private Gallery</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Public Gallery Section -->
+        <section id="public-gallery" class="gallery-section active">
+            <div class="container">
+                <h2 class="section-title">Public Memories</h2>
+                <p class="section-subtitle">Shared moments for everyone to enjoy</p>
+
+                <!-- Filter Controls -->
+                <div class="gallery-filters">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="photos">Photos</button>
+                    <button class="filter-btn" data-filter="videos">Videos</button>
+                    <button class="filter-btn" data-filter="events">Events</button>
+                    <button class="filter-btn" data-filter="fun">Fun Times</button>
+                </div>
+
+                <!-- Public Gallery Grid -->
+                <div class="gallery-grid" id="public-grid">
+                    <!-- Real School Photos -->
+                    <div class="gallery-item photo reveal-scale stagger-1" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery1.jpg" alt="School Memory 1" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>School Memories</h4>
+                                <p>Precious moments together</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 0)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-2" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery2.jpg" alt="School Memory 2" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Friendship Goals</h4>
+                                <p>Making memories that last</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 1)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-3" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery3.jpg" alt="School Memory 3" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Fun Times</h4>
+                                <p>Laughter and joy</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 2)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-4" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery4.jpg" alt="School Memory 4" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Group Adventures</h4>
+                                <p>Together we shine</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 3)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-5" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery5.jpg" alt="School Memory 5" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Candid Moments</h4>
+                                <p>Natural smiles</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 4)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-6" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery6.jpg" alt="School Memory 6" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Special Occasions</h4>
+                                <p>Celebrating together</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 5)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-7" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery7.jpg" alt="School Memory 7" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Happy Faces</h4>
+                                <p>Pure joy captured</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 6)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-8" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery8.jpg" alt="School Memory 8" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>School Days</h4>
+                                <p>Learning and growing</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 7)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-9" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery9.jpg" alt="School Memory 9" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Best Friends</h4>
+                                <p>Bonds that last forever</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 8)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-10" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery10.jpg" alt="School Memory 10" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Memorable Moments</h4>
+                                <p>Stories to tell</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 9)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-11" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery11.jpg" alt="School Memory 11" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Friendship Circle</h4>
+                                <p>United we stand</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 10)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-12" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery12.jpg" alt="School Memory 12" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Golden Times</h4>
+                                <p>Treasured memories</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 11)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Additional landscape images for home schooling -->
+                    <div class="gallery-item photo reveal-scale stagger-13" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery13.jpg" alt="Home Learning 1" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Home Learning</h4>
+                                <p>Study sessions together</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 12)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-14" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery14.jpg" alt="Home Learning 2" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Group Study</h4>
+                                <p>Learning made fun</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 13)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-15" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery15.jpg" alt="Home Learning 3" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Virtual Classes</h4>
+                                <p>Connected from home</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 14)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-16" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery16.jpg" alt="Home Learning 4" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Study Buddies</h4>
+                                <p>Supporting each other</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 15)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-17" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery17.jpg" alt="Home Learning 5" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Online Projects</h4>
+                                <p>Collaborative work</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 16)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-18" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery18.jpg" alt="Home Learning 6" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Home Assignments</h4>
+                                <p>Dedicated learners</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 17)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Additional gallery images -->
+                    <div class="gallery-item photo reveal-scale stagger-19" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery19.jpg" alt="School Memory 19" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Special Moments</h4>
+                                <p>Unforgettable times</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 18)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-20" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery20.jpg" alt="School Memory 20" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Fun Times</h4>
+                                <p>Laughter and joy</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 19)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-21" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery21.jpg" alt="School Memory 21" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Group Adventures</h4>
+                                <p>Exploring together</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 20)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-22" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery22.jpg" alt="School Memory 22" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Candid Moments</h4>
+                                <p>Natural smiles</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 21)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-23" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery23.jpg" alt="School Memory 23" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Memorable Events</h4>
+                                <p>Stories to tell</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 22)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-24" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery24.jpg" alt="School Memory 24" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Friendship Circle</h4>
+                                <p>Bonds that last forever</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 23)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-25" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery25.jpg" alt="School Memory 25" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Golden Times</h4>
+                                <p>Treasured memories</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 24)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-26" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery26.jpg" alt="School Memory 26" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Happy Faces</h4>
+                                <p>Pure joy captured</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 25)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-27" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery27.jpg" alt="School Memory 27" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>School Days</h4>
+                                <p>Learning and growing</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 26)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-28" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery28.jpg" alt="School Memory 28" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Best Friends</h4>
+                                <p>Bonds that last forever</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 27)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-29" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery29.jpg" alt="School Memory 29" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Memorable Moments</h4>
+                                <p>Stories to tell</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 28)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-30" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery30.jpg" alt="School Memory 30" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Friendship Goals</h4>
+                                <p>United we stand</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 29)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-31" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery31.jpg" alt="School Memory 31" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Special Occasions</h4>
+                                <p>Celebrating together</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 30)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-32" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery32.jpg" alt="School Memory 32" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Fun Adventures</h4>
+                                <p>Exciting times</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 31)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-33" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery33.jpg" alt="School Memory 33" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Group Activities</h4>
+                                <p>Teamwork and fun</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 32)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-34" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery34.jpg" alt="School Memory 34" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Happy Moments</h4>
+                                <p>Smiles all around</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 33)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-35" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery35.jpg" alt="School Memory 35" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Memorable Experiences</h4>
+                                <p>Times to remember</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 34)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-36" data-category="photos fun">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery36.jpg" alt="School Memory 36" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Special Memories</h4>
+                                <p>Cherished moments</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 35)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item photo reveal-scale stagger-37" data-category="photos events">
+                        <div class="gallery-image">
+                            <img src="assets/school/gallery37.jpg" alt="School Memory 37" loading="lazy">
+                            <div class="media-overlay">
+                                <h4>Unforgettable Times</h4>
+                                <p>Memories that last</p>
+                            </div>
+                        </div>
+                        <div class="gallery-actions">
+                            <button class="action-btn" onclick="openLightbox('public', 36)">
+                                <span>👁️</span> View
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infinite Zoom Animation Block -->
+        <section class="infinite-zoom-section">
+            <div class="container">
+                <h2 class="section-title">Infinite Memories</h2>
+                <p class="section-subtitle">Our friendship keeps growing and growing</p>
+                <div class="zoom-container">
+                    <div class="zoom-element">
+                        <div class="zoom-circle"></div>
+                        <div class="zoom-circle"></div>
+                        <div class="zoom-circle"></div>
+                        <div class="zoom-circle"></div>
+                        <div class="zoom-content">
+                            <span class="heart">❤️</span>
+                            <span class="friends-text">Friends Forever</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Private Gallery Section -->
+        <section id="private-gallery" class="gallery-section">
+            <div class="container">
+                <!-- Password Protection -->
+                <div class="password-protection" id="password-screen">
+                    <div class="password-container">
+                        <div class="lock-animation">
+                            <div class="lock-icon">🔒</div>
+                            <div class="lock-glow"></div>
+                        </div>
+                        <h2>Private Gallery Access</h2>
+                        <p>Enter the password to view exclusive content</p>
+                        <form class="password-form" onsubmit="checkPassword(event)">
+                            <div class="password-input-group">
+                                <input type="password" id="gallery-password" placeholder="Enter password" required>
+                                <button type="submit" class="password-submit">
+                                    <span>🔓</span> Unlock
+                                </button>
+                            </div>
+                            <div class="password-hint">Hint: Our favorite year + "pals"</div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Private Gallery Content (Hidden by default) -->
+                <div class="private-content" id="private-content" style="display: none;">
+                    <h2 class="section-title">Private Memories</h2>
+                    <p class="section-subtitle">Exclusive content for our inner circle</p>
+
+                    <!-- Private Filter Controls -->
+                    <div class="gallery-filters">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="photos">Photos</button>
+                        <button class="filter-btn" data-filter="videos">Videos</button>
+                        <button class="filter-btn" data-filter="personal">Personal</button>
+                        <button class="filter-btn" data-filter="exclusive">Exclusive</button>
+                    </div>
+
+                    <!-- Private Gallery Grid -->
+                    <div class="gallery-grid" id="private-grid">
+                        <div class="gallery-item photo reveal-scale stagger-1" data-category="photos personal">
+                            <div class="gallery-image private-item">
+                                <img src="assets/school/gallery13.jpg" alt="Private Memory 1" loading="lazy">
+                                <div class="media-overlay">
+                                    <h4>Behind the Scenes</h4>
+                                    <p>Exclusive moments</p>
+                                </div>
+                            </div>
+                            <div class="gallery-actions">
+                                <button class="action-btn" onclick="openLightbox('private', 0)">
+                                    <span>👁️</span> View
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item video reveal-scale stagger-2" data-category="videos exclusive">
+                            <div class="gallery-video private-item">
+                                <video poster="assets/school/gallery14.jpg" preload="metadata">
+                                    <source src="assets/video/20250121_131759.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="play-button">▶️</div>
+                                <div class="media-overlay">
+                                    <h4>Memory Video 1</h4>
+                                    <p>Special moments captured</p>
+                                </div>
+                            </div>
+                            <div class="gallery-actions">
+                                <button class="action-btn" onclick="openLightbox('private', 1)">
+                                    <span>▶️</span> Play
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item photo reveal-scale stagger-3" data-category="photos personal">
+                            <div class="gallery-image private-item">
+                                <img src="assets/school/gallery15.jpg" alt="Private Memory 2" loading="lazy">
+                                <div class="media-overlay">
+                                    <h4>Precious Moments</h4>
+                                    <p>Heart to heart</p>
+                                </div>
+                            </div>
+                            <div class="gallery-actions">
+                                <button class="action-btn" onclick="openLightbox('private', 2)">
+                                    <span>👁️</span> View
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item video reveal-scale stagger-4" data-category="videos exclusive">
+                            <div class="gallery-video private-item">
+                                <video poster="assets/school/gallery16.jpg" preload="metadata">
+                                    <source src="assets/video/20250121_132212.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="play-button">▶️</div>
+                                <div class="media-overlay">
+                                    <h4>Memory Video 2</h4>
+                                    <p>Private adventures</p>
+                                </div>
+                            </div>
+                            <div class="gallery-actions">
+                                <button class="action-btn" onclick="openLightbox('private', 3)">
+                                    <span>▶️</span> Play
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item photo reveal-scale stagger-5" data-category="photos personal">
+                            <div class="gallery-image private-item">
+                                <img src="assets/school/gallery17.jpg" alt="Private Memory 3" loading="lazy">
+                                <div class="media-overlay">
+                                    <h4>Inner Circle</h4>
+                                    <p>Close friends only</p>
+                                </div>
+                            </div>
+                            <div class="gallery-actions">
+                                <button class="action-btn" onclick="openLightbox('private', 4)">
+                                    <span>👁️</span> View
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="gallery-item video reveal-scale stagger-6" data-category="videos exclusive">
+                            <div class="gallery-video private-item">
+                                <video poster="assets/school/gallery18.jpg" preload="metadata">
+                                    <source src="assets/video/20250121_132312.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                <div class="play-button">▶️</div>
+                                <div class="media-overlay">
+                                    <h4>Memory Video 3</h4>
+                                    <p>Exclusive content</p>
+                                </div>
+                            </div>
+                            <div class="gallery-actions">
+                                <button class="action-btn" onclick="openLightbox('private', 5)">
+                                    <span>▶️</span> Play
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Logout Button -->
+                    <div class="private-actions">
+                        <button class="logout-btn" onclick="logout()">
+                            <span>🔒</span> Lock Gallery
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-overlay" onclick="closeLightbox()"></div>
+        <div class="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+            <div class="lightbox-media" id="lightbox-media">
+                <!-- Media content will be inserted here -->
+            </div>
+            <div class="lightbox-info">
+                <h3 id="lightbox-title">Media Title</h3>
+                <p id="lightbox-description">Media description</p>
+            </div>
+            <div class="lightbox-controls">
+                <button class="lightbox-btn" onclick="previousMedia()">‹ Previous</button>
+                <button class="lightbox-btn" onclick="nextMedia()">Next ›</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Walle Pals. Made with ❤️ for our amazing friend circle.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/gallery.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2024 walle pals - Ultra-realistic framed brick wall with carved friend names">
+    <title>2024 Walle Pals - Framed Brick Wall of Friends</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/favicon.ico">
+    <meta name="theme-color" content="#4facfe">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Navigation overlay */
+        .nav-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(15px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-brand {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #d4af37 0%, #ffd700 50%, #daa520 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #ffd700;
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+        }
+
+        /* Main wall container with room atmosphere */
+        .wall-scene {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background:
+                /* Ambient room lighting */
+                radial-gradient(ellipse at 30% 20%, rgba(255, 240, 200, 0.15) 0%, transparent 40%),
+                radial-gradient(ellipse at 70% 80%, rgba(200, 180, 160, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at center, transparent 30%, rgba(0, 0, 0, 0.9) 100%),
+                /* Room atmosphere */
+                linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 50%, #050505 100%);
+            perspective: 2000px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 50px 50px 50px;
+        }
+
+        /* Ornate Picture Frame */
+        .picture-frame {
+            position: relative;
+            width: 90%;
+            max-width: 1200px;
+            height: 80vh;
+            background:
+                /* Ornate gold frame gradient */
+                linear-gradient(135deg, #d4af37 0%, #ffd700 25%, #b8860b 50%, #daa520 75%, #cd853f 100%);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow:
+                /* Deep frame shadow */
+                0 0 50px rgba(0, 0, 0, 0.8),
+                0 20px 40px rgba(0, 0, 0, 0.6),
+                inset 0 0 30px rgba(0, 0, 0, 0.3),
+                inset 0 0 10px rgba(255, 255, 255, 0.2),
+                inset 0 0 5px rgba(255, 215, 0, 0.4);
+            transform: rotateX(2deg) rotateY(-1deg);
+            transition: transform 0.5s ease;
+            border: 3px solid #b8860b;
+        }
+
+        .picture-frame:hover {
+            transform: rotateX(0deg) rotateY(0deg) scale(1.01);
+            box-shadow:
+                0 0 60px rgba(255, 215, 0, 0.3),
+                0 25px 50px rgba(0, 0, 0, 0.7),
+                inset 0 0 30px rgba(0, 0, 0, 0.3),
+                inset 0 0 15px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Inner frame detail */
+        .frame-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background:
+                linear-gradient(135deg, #8b4513 0%, #a0522d 50%, #654321 100%);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow:
+                inset 0 0 20px rgba(0, 0, 0, 0.5),
+                inset 0 0 5px rgba(255, 255, 255, 0.1);
+            border: 2px solid #654321;
+        }
+
+        /* Frame decorative corners */
+        .frame-corner {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background:
+                radial-gradient(circle, #ffd700 0%, #daa520 50%, #b8860b 100%);
+            border-radius: 50%;
+            box-shadow:
+                inset 0 0 10px rgba(0, 0, 0, 0.3),
+                0 0 15px rgba(255, 215, 0, 0.5),
+                0 5px 10px rgba(0, 0, 0, 0.3);
+            border: 2px solid #b8860b;
+        }
+
+        .frame-corner::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+            background: radial-gradient(circle, #fff 0%, #ffd700 100%);
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .frame-corner.top-left {
+            top: -20px;
+            left: -20px;
+        }
+
+        .frame-corner.top-right {
+            top: -20px;
+            right: -20px;
+        }
+
+        .frame-corner.bottom-left {
+            bottom: -20px;
+            left: -20px;
+        }
+
+        .frame-corner.bottom-right {
+            bottom: -20px;
+            right: -20px;
+        }
+
+        /* Frame nameplate */
+        .frame-nameplate {
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #daa520 0%, #ffd700 50%, #b8860b 100%);
+            padding: 8px 20px;
+            border-radius: 20px;
+            box-shadow:
+                0 5px 15px rgba(0, 0, 0, 0.5),
+                inset 0 0 10px rgba(255, 255, 255, 0.2);
+            font-family: 'Playfair Display', serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #2c1810;
+            text-shadow: 0 1px 2px rgba(255, 255, 255, 0.3);
+            letter-spacing: 1px;
+            border: 1px solid #b8860b;
+        }
+
+        /* Enhanced brick wall structure */
+        .wall {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background:
+                /* Enhanced mortar pattern */
+                repeating-linear-gradient(0deg,
+                    #2a2a2a 0px,
+                    #353535 1px,
+                    #2a2a2a 2px,
+                    #2f2f2f 58px,
+                    #2a2a2a 59px,
+                    #353535 60px,
+                    #2a2a2a 61px,
+                    #2f2f2f 64px),
+                repeating-linear-gradient(90deg,
+                    #2a2a2a 0px,
+                    #353535 1px,
+                    #2a2a2a 2px,
+                    #2f2f2f 148px,
+                    #2a2a2a 149px,
+                    #353535 150px,
+                    #2a2a2a 151px,
+                    #2f2f2f 154px);
+            box-shadow:
+                inset 0 0 100px rgba(0, 0, 0, 0.4),
+                inset 0 0 50px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Brick container */
+        .bricks {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            padding: 10px 0;
+        }
+
+        /* Brick row */
+        .row {
+            display: flex;
+            height: 56px;
+            position: relative;
+            margin-bottom: 4px;
+        }
+
+        /* Stagger pattern */
+        .row:nth-child(even) {
+            margin-left: -75px;
+        }
+
+        /* Individual brick - Enhanced realism */
+        .brick {
+            width: 150px;
+            height: 56px;
+            margin-right: 4px;
+            position: relative;
+            flex-shrink: 0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        /* Ultra-realistic brick face */
+        .brick-face {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background:
+                /* Realistic brick texture layers */
+                linear-gradient(105deg, transparent 40%, rgba(0, 0, 0, 0.05) 40.5%, transparent 41%),
+                linear-gradient(85deg, transparent 65%, rgba(255, 255, 255, 0.02) 65.5%, transparent 66%),
+                linear-gradient(25deg, transparent 30%, rgba(0, 0, 0, 0.03) 30.5%, transparent 31%),
+                /* Enhanced natural brick colors */
+                linear-gradient(135deg,
+                    #8B4A3C 0%,
+                    #925242 8%,
+                    #8A4938 16%,
+                    #935040 24%,
+                    #8B453A 32%,
+                    #824034 40%,
+                    #8A4A3E 48%,
+                    #7A3A30 56%,
+                    #83402F 64%,
+                    #6E3228 72%,
+                    #7A3D32 80%,
+                    #6B2F25 88%,
+                    #5C2A22 100%);
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            border-radius: 3px;
+            box-shadow:
+                /* Enhanced 3D depth */
+                inset 3px 3px 6px rgba(255, 255, 255, 0.08),
+                inset -3px -3px 6px rgba(0, 0, 0, 0.4),
+                inset 0 0 25px rgba(0, 0, 0, 0.15),
+                0 3px 8px rgba(0, 0, 0, 0.6),
+                0 6px 15px rgba(0, 0, 0, 0.4),
+                0 1px 3px rgba(0, 0, 0, 0.8);
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Enhanced brick variations */
+        .brick:nth-child(2n) .brick-face {
+            background:
+                linear-gradient(115deg, transparent 45%, rgba(0, 0, 0, 0.06) 45.5%, transparent 46%),
+                linear-gradient(75deg, transparent 70%, rgba(255, 255, 255, 0.015) 70.5%, transparent 71%),
+                linear-gradient(135deg,
+                    #925242 0%,
+                    #8A4938 15%,
+                    #8B453A 30%,
+                    #824034 45%,
+                    #7A3A30 60%,
+                    #6E3228 75%,
+                    #5C2A22 90%,
+                    #4A1F18 100%);
+        }
+
+        .brick:nth-child(3n) .brick-face {
+            background:
+                linear-gradient(95deg, transparent 60%, rgba(255, 255, 255, 0.02) 60.5%, transparent 61%),
+                linear-gradient(135deg,
+                    #8A4A3E 0%,
+                    #935040 20%,
+                    #8B4A3C 40%,
+                    #83402F 60%,
+                    #6E3228 80%,
+                    #5A251C 100%);
+        }
+
+        .brick:nth-child(5n) .brick-face {
+            background:
+                linear-gradient(125deg, transparent 55%, rgba(0, 0, 0, 0.04) 55.5%, transparent 56%),
+                linear-gradient(135deg,
+                    #83402F 0%,
+                    #8B453A 25%,
+                    #925242 50%,
+                    #7A3A30 75%,
+                    #5C2A22 100%);
+        }
+
+        /* Ultra-realistic carved name effect with improved visibility */
+        .carved-name {
+            position: relative;
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 12px; /* Increased font size */
+            font-weight: 800; /* Bolder text */
+            text-transform: uppercase;
+            letter-spacing: 1.8px;
+            color: transparent;
+            text-shadow:
+                /* Enhanced deep carving shadows for better contrast */
+                1px 1px 3px rgba(0, 0, 0, 1),
+                2px 2px 5px rgba(0, 0, 0, 0.9),
+                3px 3px 7px rgba(0, 0, 0, 0.7),
+                4px 4px 9px rgba(0, 0, 0, 0.5),
+                /* Brighter highlight on carved edges */
+                -1px -1px 2px rgba(255, 255, 255, 0.3),
+                -1.5px -1.5px 3px rgba(255, 255, 255, 0.2),
+                /* Enhanced fill shadow for better visibility */
+                0 0 3px rgba(80, 80, 80, 1),
+                0 0 6px rgba(60, 60, 60, 0.8);
+            -webkit-text-stroke: 0.4px rgba(55, 55, 55, 1); /* Thicker stroke */
+            text-stroke: 0.4px rgba(55, 55, 55, 1);
+            transition: all 0.4s ease;
+            z-index: 10;
+            display: inline-block;
+            transform: translateZ(2px);
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Enhanced carved variations with better visibility */
+        .brick:nth-child(3n) .carved-name {
+            text-shadow:
+                1px 1px 4px rgba(0, 0, 0, 1),
+                2px 2px 6px rgba(0, 0, 0, 0.9),
+                3px 3px 8px rgba(0, 0, 0, 0.7),
+                4px 4px 10px rgba(0, 0, 0, 0.5),
+                -1px -1px 2px rgba(255, 255, 255, 0.2),
+                0 0 3px rgba(70, 70, 70, 1);
+            -webkit-text-stroke: 0.3px rgba(50, 50, 50, 0.9);
+        }
+
+        .brick:nth-child(5n) .carved-name {
+            font-size: 11px; /* Slightly larger font */
+            font-weight: 800; /* Bolder text */
+            text-shadow:
+                1px 1px 3px rgba(0, 0, 0, 1),
+                2px 2px 4px rgba(0, 0, 0, 0.8),
+                3px 3px 6px rgba(0, 0, 0, 0.6),
+                -0.5px -0.5px 1px rgba(255, 255, 255, 0.15),
+                0 0 3px rgba(90, 90, 90, 0.9);
+            -webkit-text-stroke: 0.5px rgba(65, 65, 65, 0.8); /* Thicker stroke */
+        }
+
+        /* Enhanced hover effects */
+        .brick:hover {
+            transform: translateZ(12px) scale(1.02);
+            z-index: 100;
+        }
+
+        .brick:hover .brick-face {
+            box-shadow:
+                inset 4px 4px 8px rgba(255, 255, 255, 0.12),
+                inset -4px -4px 8px rgba(0, 0, 0, 0.5),
+                0 6px 20px rgba(0, 0, 0, 0.7),
+                0 12px 30px rgba(0, 0, 0, 0.4),
+                0 0 20px rgba(139, 74, 60, 0.3);
+        }
+
+        .brick:hover .carved-name {
+            text-shadow:
+                1px 1px 3px rgba(0, 0, 0, 0.95),
+                2px 2px 5px rgba(0, 0, 0, 0.8),
+                3px 3px 7px rgba(0, 0, 0, 0.6),
+                4px 4px 9px rgba(0, 0, 0, 0.4),
+                -0.8px -0.8px 2px rgba(255, 255, 255, 0.2),
+                0 0 3px rgba(90, 90, 90, 0.9);
+            transform: translateZ(3px);
+        }
+
+        /* Empty bricks */
+        .brick.empty .carved-name {
+            display: none;
+        }
+
+        /* Enhanced weathering effects */
+        .stain {
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .water-stain {
+            width: 180px;
+            height: 400px;
+            background: linear-gradient(180deg,
+                    transparent 0%,
+                    rgba(0, 0, 0, 0.08) 15%,
+                    rgba(0, 0, 0, 0.15) 40%,
+                    rgba(0, 0, 0, 0.12) 65%,
+                    rgba(0, 0, 0, 0.06) 85%,
+                    transparent 100%);
+            top: 0;
+            left: 25%;
+            opacity: 0.7;
+            border-radius: 50px;
+        }
+
+        .dirt-stain {
+            width: 350px;
+            height: 250px;
+            background: radial-gradient(ellipse,
+                    rgba(0, 0, 0, 0.25) 0%,
+                    rgba(0, 0, 0, 0.15) 30%,
+                    rgba(0, 0, 0, 0.08) 60%,
+                    transparent 80%);
+            bottom: 0;
+            right: 20%;
+            opacity: 0.6;
+        }
+
+        /* Enhanced cracks */
+        .crack {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.3;
+            background:
+                linear-gradient(25deg, transparent 48%, rgba(0, 0, 0, 0.08) 49%, rgba(0, 0, 0, 0.08) 49.5%, transparent 50.5%),
+                linear-gradient(-30deg, transparent 77%, rgba(0, 0, 0, 0.06) 78%, rgba(0, 0, 0, 0.06) 78.5%, transparent 79.5%),
+                linear-gradient(60deg, transparent 65%, rgba(0, 0, 0, 0.04) 65.5%, rgba(0, 0, 0, 0.04) 66%, transparent 66.5%);
+        }
+
+        /* Enhanced brick damage */
+        .brick:nth-child(13n) .brick-face::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: radial-gradient(circle, #2a2a2a 20%, #1a1a1a 60%, transparent 100%);
+            border-radius: 50%;
+            top: 20%;
+            right: 15%;
+            box-shadow:
+                inset 2px 2px 4px rgba(0, 0, 0, 0.6),
+                0 1px 3px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Enhanced moss effects */
+        .row:nth-last-child(-n+3) .brick-face::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 35%;
+            background: linear-gradient(to top,
+                    rgba(47, 59, 47, 0.15) 0%,
+                    rgba(35, 45, 35, 0.08) 50%,
+                    transparent 100%);
+            pointer-events: none;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .wall-scene {
+                padding: 80px 20px 20px 20px;
+            }
+
+            .picture-frame {
+                width: 95%;
+                height: 75vh;
+                padding: 15px;
+            }
+
+            .frame-inner {
+                padding: 10px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .brick {
+                width: 118px;
+                height: 46px;
+            }
+
+            .row {
+                height: 46px;
+                margin-bottom: 3px;
+            }
+
+            .row:nth-child(even) {
+                margin-left: -59px;
+            }
+
+            .carved-name {
+                font-size: 9px !important;
+                letter-spacing: 1px;
+            }
+
+            .frame-corner {
+                width: 30px;
+                height: 30px;
+            }
+
+            .frame-nameplate {
+                font-size: 12px;
+                padding: 6px 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav-overlay">
+        <div class="nav-brand">
+            <img src="assets/favicon.ico" alt="Walle Pals Logo"
+                style="width: 32px; height: 32px; margin-right: 10px; border-radius: 6px;">
+            2024 Walle Pals
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#wall-of-frames">Friends</a></li>
+            <li><a href="memories.html">Memories</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="wall-scene">
+        <!-- Ornate Picture Frame -->
+        <div class="picture-frame">
+            <!-- Decorative corners -->
+            <div class="frame-corner top-left"></div>
+            <div class="frame-corner top-right"></div>
+            <div class="frame-corner bottom-left"></div>
+            <div class="frame-corner bottom-right"></div>
+
+            <!-- Frame nameplate -->
+            <div class="frame-nameplate">WALLE PALS 2024</div>
+
+            <!-- Inner frame -->
+            <div class="frame-inner">
+                <div class="wall">
+                    <!-- Enhanced weathering effects -->
+                    <div class="stain water-stain"></div>
+                    <div class="stain dirt-stain"></div>
+                    <div class="crack"></div>
+
+                    <div class="bricks">
+                        <!-- Top empty rows -->
+                        <div class="row">
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                        </div>
+
+                        <!-- Named bricks rows -->
+                        <div class="row">
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/harsh.html" class="carved-name">HARSH</a></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/parduman.html" class="carved-name">PARDUMAN</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/kartik.html" class="carved-name">KARTIK</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/pankaj.html" class="carved-name">PANKAJ</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/lakshay.html" class="carved-name">LAKSHAY</a>
+                                </div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/pasandu.html" class="carved-name">PASANDU</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/vishesh.html" class="carved-name">VISHESH</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/sahil.html" class="carved-name">SAHIL</a></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/tushar.html" class="carved-name">TUSHAR</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/yougank.html" class="carved-name">YOUGANK</a>
+                                </div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/masum.html" class="carved-name">MASUM</a></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/shiv.html" class="carved-name">SHIV</a></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/arijit.html" class="carved-name">ARIJIT</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/pintu.html" class="carved-name">PINTU</a></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/ayush.html" class="carved-name">AYUSH</a></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/shivaji.html" class="carved-name">SHIVAJI</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/sachin.html" class="carved-name">SACHIN</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/varun.html" class="carved-name">VARUN</a></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/hani.html" class="carved-name">HANI</a></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/anshul.html" class="carved-name">ANSHUL</a>
+                                </div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/abhishek.html" class="carved-name">ABHISHEK</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/arjun.html" class="carved-name">ARJUN</a></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/dheraj.html" class="carved-name">DHERAJ</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/rajat.html" class="carved-name">RAJAT</a></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/aditya.html" class="carved-name">ADITYA</a>
+                                </div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/rudra.html" class="carved-name">RUDRA</a></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/mudashir.html" class="carved-name">MUDASHIR</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/ravi.html" class="carved-name">RAVI</a></div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/aashish.html" class="carved-name">AASHISH</a>
+                                </div>
+                            </div>
+                            <div class="brick">
+                                <div class="brick-face"><a href="friends/rijwaan.html" class="carved-name">RIJWAAN</a>
+                                </div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                        </div>
+
+                        <!-- Bottom empty rows -->
+                        <div class="row">
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                            <div class="brick empty">
+                                <div class="brick-face"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

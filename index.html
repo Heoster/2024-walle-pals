@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2024 walle pals - A modern interactive website connecting friends through a beautiful wall of frames">
+    <title>2024 Walle Pals - Friends Forever</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/favicon.ico">
+    <meta name="theme-color" content="#4facfe">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/wall-of-frames.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="assets/favicon.ico" alt="Walle Pals Logo" class="nav-logo">
+                <h1 class="brand-title">2024 Walle Pals</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">Home</a></li>
+                <li><a href="#wall-of-frames" class="nav-link">Friends</a></li>
+                <li><a href="memories.html" class="nav-link">Memories</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="contact.html" class="nav-link">Contact</a></li>
+            </ul>
+            <button class="theme-toggle" aria-label="Toggle theme" id="themeToggle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 5.5c-3.6 0-6.5 2.9-6.5 6.5s2.9 6.5 6.5 6.5 6.5-2.9 6.5-6.5-2.9-6.5-6.5-6.5zm0 11c-2.5 0-4.5-2-4.5-4.5s2-4.5 4.5-4.5 4.5 2 4.5 4.5-2 4.5-4.5 4.5z"/>
+                    <path d="M12 2v2m0 16v2M4 12H2m20 0h-2m-4.2-4.2l-1.4-1.4m-8.5 8.5-1.4-1.4m11.3 0 1.4-1.4M6.3 6.3l-1.4-1.4"/>
+                </svg>
+            </button>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">Welcome to Our Circle</h1>
+                <p class="hero-subtitle">Where friendships come alive through memories and connections</p>
+                <div class="hero-shapes">
+                    <div class="floating-shape shape-1"></div>
+                    <div class="floating-shape shape-2"></div>
+                    <div class="floating-shape shape-3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3D Card Animation Section -->
+        <section class="card-3d-section">
+            <div class="container">
+                <h2 class="section-title">Memories in Motion</h2>
+                <p class="section-subtitle">Our cherished moments spinning through time</p>
+                <div class="card-3d">
+                    <div style="background-image: url('assets/memories/memories1.jpg');"></div>
+                    <div style="background-image: url('assets/memories/memories2.jpg');"></div>
+                    <div style="background-image: url('assets/memories/memories3.jpg');"></div>
+                    <div style="background-image: url('assets/memories/memories4.jpg');"></div>
+                    <div style="background-image: url('assets/memories/memories5.jpg');"></div>
+                    <div style="background-image: url('assets/memories/memories6.jpg');"></div>
+                    <div style="background-image: url('assets/memories/memories7.jpg');"></div>
+                    <div style="background-image: url('assets/memories/memories8.jpg');"></div>
+                    <div style="background-image: url('assets/memories/memories9.jpg');"></div>
+                    <div style="background-image: url('assets/memories/memories10.jpg');"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="wall-of-frames" class="wall-section">
+            <div class="container">
+                <h2 class="section-title">Our Wall of Frames</h2>
+                <p class="section-subtitle">Click on any frame to visit a friend's special page</p>
+                <div class="wall-of-frames">
+                    <!-- Friend frames will be generated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Home Schooling Section -->
+        <section class="home-schooling-section">
+            <div class="container">
+                <h2 class="section-title">Home Learning Journey</h2>
+                <p class="section-subtitle">How we stayed connected during remote learning</p>
+                
+                <div class="schooling-grid">
+                    <div class="schooling-content">
+                        <h3>Virtual Classrooms</h3>
+                        <p>When the world changed, our friendship didn't. We adapted to online learning while keeping our bonds strong through virtual study sessions, group projects, and shared experiences.</p>
+                        
+                        <div class="schooling-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">100+</span>
+                                <span class="stat-label">Online Sessions</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">30</span>
+                                <span class="stat-label">Friends Connected</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">365</span>
+                                <span class="stat-label">Days Together</span>
+                            </div>
+                        </div>
+                        
+                        <a href="gallery.html" class="schooling-btn">View Learning Memories</a>
+                    </div>
+                    
+                    <div class="schooling-images">
+                        <div class="image-grid">
+                            <img src="assets/school/gallery19.jpg" alt="Home Learning 1" class="schooling-img">
+                            <img src="assets/school/gallery20.jpg" alt="Home Learning 2" class="schooling-img">
+                            <img src="assets/school/gallery21.jpg" alt="Home Learning 3" class="schooling-img">
+                            <img src="assets/school/gallery22.jpg" alt="Home Learning 4" class="schooling-img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brick Wall Integration -->
+        <section class="brick-wall-section">
+            <div class="container">
+                <h2 class="section-title">Brick Wall of Memories</h2>
+                <p class="section-subtitle">Each name carved with love and friendship</p>
+                <div class="brick-wall-preview">
+                    <div class="brick-wall-container">
+                        <div class="brick-row">
+                            <div class="brick"><span class="carved-name">HARSH</span></div>
+                            <div class="brick"><span class="carved-name">PARDUMAN</span></div>
+                            <div class="brick"><span class="carved-name">KARTIK</span></div>
+                            <div class="brick"><span class="carved-name">PANKAJ</span></div>
+                        </div>
+                        <div class="brick-row offset">
+                            <div class="brick"><span class="carved-name">LAKSHAY</span></div>
+                            <div class="brick"><span class="carved-name">PASANDU</span></div>
+                            <div class="brick"><span class="carved-name">VISHESH</span></div>
+                            <div class="brick"><span class="carved-name">SAHIL</span></div>
+                        </div>
+                        <div class="brick-row">
+                            <div class="brick"><span class="carved-name">TUSHAR</span></div>
+                            <div class="brick"><span class="carved-name">YOUGANK</span></div>
+                            <div class="brick"><span class="carved-name">MASUM</span></div>
+                            <div class="brick"><span class="carved-name">SHIV</span></div>
+                        </div>
+                        <div class="brick-row offset">
+                            <div class="brick"><span class="carved-name">ARIJIT</span></div>
+                            <div class="brick"><span class="carved-name">PINTU</span></div>
+                            <div class="brick"><span class="carved-name">AYUSH</span></div>
+                            <div class="brick"><span class="carved-name">SHIVAJI</span></div>
+                        </div>
+                        <div class="brick-row">
+                            <div class="brick"><span class="carved-name">SACHIN</span></div>
+                            <div class="brick"><span class="carved-name">VARUN</span></div>
+                            <div class="brick"><span class="carved-name">HANI</span></div>
+                            <div class="brick"><span class="carved-name">ANSHUL</span></div>
+                        </div>
+                        <div class="brick-row offset">
+                            <div class="brick"><span class="carved-name">ABHISHEK</span></div>
+                            <div class="brick"><span class="carved-name">ARJUN</span></div>
+                            <div class="brick"><span class="carved-name">DHERAJ</span></div>
+                            <div class="brick"><span class="carved-name">RAJAT</span></div>
+                        </div>
+                        <div class="brick-row">
+                            <div class="brick"><span class="carved-name">ADITYA</span></div>
+                            <div class="brick"><span class="carved-name">RUDRA</span></div>
+                            <div class="brick"><span class="carved-name">MUDASHIR</span></div>
+                            <div class="brick"><span class="carved-name">RAVI</span></div>
+                        </div>
+                        <div class="brick-row offset">
+                            <div class="brick"><span class="carved-name">AASHISH</span></div>
+                            <div class="brick"><span class="carved-name">RIJWAAN</span></div>
+                            <div class="brick empty"></div>
+                            <div class="brick empty"></div>
+                        </div>
+                    </div>
+                    <a href="brick-wall.html" class="view-full-wall-btn">View Full Brick Wall</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Infinite Zoom Animation Block -->
+        <section class="infinite-zoom-section">
+            <div class="container">
+                <h2 class="section-title">Infinite Memories</h2>
+                <p class="section-subtitle">Our friendship keeps growing and growing</p>
+                <div class="zoom-container">
+                    <div class="zoom-element">
+                        <div class="zoom-circle"></div>
+                        <div class="zoom-circle"></div>
+                        <div class="zoom-circle"></div>
+                        <div class="zoom-circle"></div>
+                        <div class="zoom-content">
+                            <span class="heart">❤️</span>
+                            <span class="friends-text">Friends Forever</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Walle Pals. Made with ❤️ for our amazing friend circle.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/wall-frames.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>
