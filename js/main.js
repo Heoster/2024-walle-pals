@@ -1,18 +1,223 @@
-// Main JavaScript functionality
+// Main JavaScript functionality with enhanced stability
 class WallePalsApp {
   constructor() {
     this.currentTheme = 'light';
+    this.isInitialized = false;
+    this.errorCount = 0;
+    this.maxErrors = 5;
+    
+    // Bind methods to preserve context
+    this.handleError = this.handleError.bind(this);
+    this.handleVisibilityChange = this.handleVisibilityChange.bind(this);
+    
     this.init();
   }
   
   init() {
-    this.setupNavigation();
-    this.setupScrollAnimations();
-    this.setupMobileMenu();
-    this.setupSmoothScrolling();
-    this.setupPerformanceOptimizations();
-    this.setupThemeToggle();
-    console.log('Walle Pals app initialized');
+    try {
+      // Check if already initialized
+      if (this.isInitialized) {
+        console.warn('App already initialized');
+        return;
+      }
+      
+      // Setup global error handling
+      this.setupErrorHandling();
+      
+      // Initialize components with error boundaries
+      this.safeExecute(() => this.setupNavigation(), 'Navigation setup');
+      this.safeExecute(() => this.setupScrollAnimations(), 'Scroll animations setup');
+      this.safeExecute(() => this.setupMobileMenu(), 'Mobile menu setup');
+      this.safeExecute(() => this.setupSmoothScrolling(), 'Smooth scrolling setup');
+      this.safeExecute(() => this.setupPerformanceOptimizations(), 'Performance optimizations');
+      this.safeExecute(() => this.setupThemeToggle(), 'Theme toggle setup');
+      this.safeExecute(() => this.setupAccessibility(), 'Accessibility features');
+      
+      this.isInitialized = true;
+      console.log('Walle Pals app initialized successfully');
+      
+      // Dispatch initialization event
+      document.dispatchEvent(new CustomEvent('appInitialized', {
+        detail: { timestamp: Date.now() }
+      }));
+      
+    } catch (error) {
+      this.handleError(error, 'App initialization');
+    }
+  }
+  
+  // Safe execution wrapper
+  safeExecute(fn, context = 'Unknown operation') {
+    try {
+      return fn();
+    } catch (error) {
+      this.handleError(error, context);
+      return null;
+    }
+  }
+  
+  // Enhanced error handling
+  setupErrorHandling() {
+    // Global error handler
+    window.addEventListener('error', (event) => {
+      this.handleError(event.error, 'Global error', event.filename, event.lineno);
+    });
+    
+    // Unhandled promise rejection handler
+    window.addEventListener('unhandledrejection', (event) => {
+      this.handleError(event.reason, 'Unhandled promise rejection');
+      event.preventDefault(); // Prevent console error
+    });
+    
+    // Page visibility change handler
+    document.addEventListener('visibilitychange', this.handleVisibilityChange);
+  }
+  
+  // Centralized error handling
+  handleError(error, context = 'Unknown', filename = '', lineno = 0) {
+    this.errorCount++;
+    
+    const errorInfo = {
+      message: error.message || error,
+      context,
+      filename,
+      lineno,
+      timestamp: new Date().toISOString(),
+      userAgent: navigator.userAgent,
+      url: window.location.href
+    };
+    
+    console.error('App Error:', errorInfo);
+    
+    // Show user-friendly error message for critical errors
+    if (this.errorCount >= this.maxErrors) {
+      this.showCriticalErrorMessage();
+    }
+    
+    // Optional: Send error to logging service
+    this.logError(errorInfo);
+  }
+  
+  // Show critical error message to user
+  showCriticalErrorMessage() {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'critical-error-message';
+    errorDiv.innerHTML = `
+      <div class="error-content">
+        <h3>Something went wrong</h3>
+        <p>We're experiencing technical difficulties. Please refresh the page.</p>
+        <button onclick="window.location.reload()" class="error-retry-btn">Refresh Page</button>
+      </div>
+    `;
+    
+    document.body.appendChild(errorDiv);
+    
+    // Auto-remove after 10 seconds
+    setTimeout(() => {
+      if (errorDiv.parentNode) {
+        errorDiv.parentNode.removeChild(errorDiv);
+      }
+    }, 10000);
+  }
+  
+  // Log error (placeholder for actual logging service)
+  logError(errorInfo) {
+    // In production, send to logging service
+    // For now, just store in localStorage for debugging
+    try {
+      const errors = JSON.parse(localStorage.getItem('app_errors') || '[]');
+      errors.push(errorInfo);
+      // Keep only last 10 errors
+      if (errors.length > 10) {
+        errors.splice(0, errors.length - 10);
+      }
+      localStorage.setItem('app_errors', JSON.stringify(errors));
+    } catch (e) {
+      console.warn('Could not log error to localStorage:', e);
+    }
+  }
+  
+  // Handle page visibility changes for performance
+  handleVisibilityChange() {
+    try {
+      if (document.hidden) {
+        // Page is hidden - pause heavy operations
+        this.pauseAnimations();
+      } else {
+        // Page is visible - resume operations
+        this.resumeAnimations();
+      }
+    } catch (error) {
+      this.handleError(error, 'Visibility change handler');
+    }
+  }
+  
+  // Pause animations for performance
+  pauseAnimations() {
+    document.body.classList.add('page-hidden');
+    // Pause any running intervals or animations
+  }
+  
+  // Resume animations
+  resumeAnimations() {
+    document.body.classList.remove('page-hidden');
+    // Resume paused animations
+  }
+  
+  // Setup accessibility features
+  setupAccessibility() {
+    // Skip link for keyboard navigation
+    this.addSkipLink();
+    
+    // Focus management
+    this.setupFocusManagement();
+    
+    // ARIA live regions
+    this.setupLiveRegions();
+  }
+  
+  // Add skip link for accessibility
+  addSkipLink() {
+    const skipLink = document.createElement('a');
+    skipLink.href = '#main';
+    skipLink.className = 'skip-link';
+    skipLink.textContent = 'Skip to main content';
+    document.body.insertBefore(skipLink, document.body.firstChild);
+  }
+  
+  // Setup focus management
+  setupFocusManagement() {
+    // Trap focus in modals
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        const modal = document.querySelector('.modal.active');
+        if (modal) {
+          this.trapFocus(e, modal);
+        }
+      }
+    });
+  }
+  
+  // Setup ARIA live regions for dynamic content
+  setupLiveRegions() {
+    const liveRegion = document.createElement('div');
+    liveRegion.setAttribute('aria-live', 'polite');
+    liveRegion.setAttribute('aria-atomic', 'true');
+    liveRegion.className = 'sr-only';
+    liveRegion.id = 'live-region';
+    document.body.appendChild(liveRegion);
+  }
+  
+  // Announce message to screen readers
+  announceToScreenReader(message) {
+    const liveRegion = document.getElementById('live-region');
+    if (liveRegion) {
+      liveRegion.textContent = message;
+      // Clear after announcement
+      setTimeout(() => {
+        liveRegion.textContent = '';
+      }, 1000);
+    }
   }
   
   // Navigation functionality
