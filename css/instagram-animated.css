@@ -1,0 +1,240 @@
+/* Enhanced Instagram Button with Animations */
+
+.instagram-section {
+    padding: 3rem 0;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(225, 48, 108, 0.1) 0%, rgba(255, 69, 0, 0.1) 100%);
+    margin: 2rem 0;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.instagram-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="insta-pattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" text-anchor="middle" fill="rgba(225,48,108,0.1)" font-size="12">📸</text></pattern></defs><rect width="100" height="100" fill="url(%23insta-pattern)"/></svg>');
+    opacity: 0.3;
+    animation: float-pattern 20s linear infinite;
+}
+
+@keyframes float-pattern {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(-10px) translateY(-5px); }
+    50% { transform: translateX(0) translateY(-10px); }
+    75% { transform: translateX(10px) translateY(-5px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+.instagram-section h3 {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    font-size: 1.8rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    animation: fade-in-up 0.6s ease-out;
+}
+
+.instagram-section p {
+    margin-bottom: 2rem;
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 2;
+    animation: fade-in-up 0.6s ease-out 0.2s both;
+}
+
+/* Enhanced Instagram Button */
+.instagram-button {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    position: relative;
+    padding: 15px 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    overflow: hidden;
+    color: white;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    text-align: center;
+    margin: 20px auto;
+    width: fit-content;
+    box-shadow: 0 8px 32px rgba(225, 48, 108, 0.3);
+    animation: fade-in-up 0.6s ease-out 0.4s both;
+    min-width: 200px;
+}
+
+.instagram-button:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(225, 48, 108, 0.4);
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 15%, #dc2743 35%, #cc2366 65%, #bc1888 100%);
+}
+
+.instagram-button:active {
+    transform: translateY(-2px) scale(1.02);
+}
+
+.instagram-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.6s;
+}
+
+.instagram-button:hover::before {
+    left: 100%;
+}
+
+.instagram-button svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    margin-right: 10px;
+    animation: pulse-icon 2s ease-in-out infinite;
+}
+
+.instagram-button span {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* Icon Animation */
+@keyframes pulse-icon {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+/* Fade in animations */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Floating hearts animation around button */
+.instagram-section::after {
+    content: '💖 📸 🌟 💫 ✨';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    opacity: 0;
+    animation: floating-hearts 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+@keyframes floating-hearts {
+    0%, 100% { 
+        opacity: 0; 
+        transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+    }
+    50% { 
+        opacity: 0.3; 
+        transform: translate(-50%, -50%) scale(1.2) rotate(180deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .instagram-section {
+        padding: 2rem 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .instagram-section h3 {
+        font-size: 1.5rem;
+    }
+    
+    .instagram-section p {
+        font-size: 1rem;
+    }
+    
+    .instagram-button {
+        padding: 12px 24px;
+        font-size: 14px;
+        min-width: 180px;
+    }
+    
+    .instagram-button svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .instagram-button {
+        padding: 10px 20px;
+        font-size: 13px;
+        min-width: 160px;
+    }
+    
+    .instagram-section h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/* Special animation for when button comes into view */
+.instagram-section.animate-in .instagram-button {
+    animation: bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.6s both;
+}
+
+@keyframes bounce-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.3) translateY(50px);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1) translateY(-10px);
+    }
+    70% {
+        transform: scale(0.9) translateY(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Hover effect for the entire section */
+.instagram-section:hover {
+    background: linear-gradient(135deg, rgba(225, 48, 108, 0.15) 0%, rgba(255, 69, 0, 0.15) 100%);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* Link states */
+a.instagram-button {
+    text-decoration: none;
+}
+
+a.instagram-button:visited {
+    color: white;
+}
+
+a.instagram-button:focus {
+    outline: 3px solid rgba(225, 48, 108, 0.5);
+    outline-offset: 2px;
+}

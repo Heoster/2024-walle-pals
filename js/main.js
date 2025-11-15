@@ -34,8 +34,6 @@ class WallePalsApp {
       this.safeExecute(() => this.setupAccessibility(), 'Accessibility features');
       
       this.isInitialized = true;
-      console.log('Walle Pals app initialized successfully');
-      
       // Dispatch initialization event
       document.dispatchEvent(new CustomEvent('appInitialized', {
         detail: { timestamp: Date.now() }
@@ -548,6 +546,20 @@ class WallePalsApp {
     });
   }
 }
+
+// Page Loader
+window.addEventListener('load', () => {
+  const loader = document.getElementById('pageLoader');
+  if (loader) {
+    setTimeout(() => {
+      loader.classList.add('hidden');
+      // Remove from DOM after animation
+      setTimeout(() => {
+        loader.remove();
+      }, 500);
+    }, 500);
+  }
+});
 
 // Initialize app when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {

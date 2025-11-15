@@ -14,8 +14,7 @@ class AnimationController {
     this.setupScrollAnimations();
     this.setupHoverAnimations();
     this.monitorPerformance();
-    console.log('Animation controller initialized');
-  }
+    }
   
   // Setup intersection observer for scroll-triggered animations
   setupIntersectionObserver() {

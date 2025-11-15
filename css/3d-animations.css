@@ -1,0 +1,364 @@
+/* ===================================
+   3D ANIMATIONS & EFFECTS
+   Modern 3D transforms and animations
+   =================================== */
+
+/* 3D Card Flip Animation */
+.card-3d {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  perspective: 1500px;
+  transform-style: preserve-3d;
+}
+
+.card-3d > div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform-style: preserve-3d;
+  animation: rotate3D 20s infinite linear;
+  backface-visibility: hidden;
+}
+
+.card-3d > div:nth-child(1) { animation-delay: 0s; transform: rotateY(0deg) translateZ(200px); }
+.card-3d > div:nth-child(2) { animation-delay: -2s; transform: rotateY(36deg) translateZ(200px); }
+.card-3d > div:nth-child(3) { animation-delay: -4s; transform: rotateY(72deg) translateZ(200px); }
+.card-3d > div:nth-child(4) { animation-delay: -6s; transform: rotateY(108deg) translateZ(200px); }
+.card-3d > div:nth-child(5) { animation-delay: -8s; transform: rotateY(144deg) translateZ(200px); }
+.card-3d > div:nth-child(6) { animation-delay: -10s; transform: rotateY(180deg) translateZ(200px); }
+.card-3d > div:nth-child(7) { animation-delay: -12s; transform: rotateY(216deg) translateZ(200px); }
+.card-3d > div:nth-child(8) { animation-delay: -14s; transform: rotateY(252deg) translateZ(200px); }
+.card-3d > div:nth-child(9) { animation-delay: -16s; transform: rotateY(288deg) translateZ(200px); }
+.card-3d > div:nth-child(10) { animation-delay: -18s; transform: rotateY(324deg) translateZ(200px); }
+
+@keyframes rotate3D {
+  0% { transform: rotateY(var(--start-rotation, 0deg)) translateZ(200px); }
+  100% { transform: rotateY(calc(var(--start-rotation, 0deg) + 360deg)) translateZ(200px); }
+}
+
+/* Floating 3D Elements */
+.float-3d {
+  animation: float3D 6s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes float3D {
+  0%, 100% {
+    transform: translateY(0) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: translateY(-20px) rotateX(5deg) rotateY(5deg);
+  }
+  50% {
+    transform: translateY(-10px) rotateX(-5deg) rotateY(10deg);
+  }
+  75% {
+    transform: translateY(-15px) rotateX(5deg) rotateY(-5deg);
+  }
+}
+
+/* 3D Hover Effects */
+.hover-3d {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+.hover-3d:hover {
+  transform: translateZ(30px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+/* Parallax 3D Layers */
+.parallax-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.parallax-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.1s ease-out;
+}
+
+.parallax-layer-1 { transform: translateZ(50px); }
+.parallax-layer-2 { transform: translateZ(100px); }
+.parallax-layer-3 { transform: translateZ(150px); }
+
+/* 3D Flip Card */
+.flip-card-3d {
+  perspective: 1000px;
+  width: 100%;
+  height: 300px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+}
+
+.flip-card-3d:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.flip-card-front {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+.flip-card-back {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* 3D Cube Animation */
+.cube-3d {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: rotateCube 20s infinite linear;
+  margin: 0 auto;
+}
+
+.cube-face {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.cube-face-front  { transform: rotateY(0deg) translateZ(100px); }
+.cube-face-back   { transform: rotateY(180deg) translateZ(100px); }
+.cube-face-right  { transform: rotateY(90deg) translateZ(100px); }
+.cube-face-left   { transform: rotateY(-90deg) translateZ(100px); }
+.cube-face-top    { transform: rotateX(90deg) translateZ(100px); }
+.cube-face-bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+@keyframes rotateCube {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  100% { transform: rotateX(360deg) rotateY(360deg); }
+}
+
+/* 3D Tilt Effect */
+.tilt-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease-out;
+}
+
+.tilt-3d:hover {
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale3d(1.05, 1.05, 1.05);
+}
+
+/* Depth Layers */
+.depth-layer-1 {
+  transform: translateZ(20px);
+  position: relative;
+  z-index: 1;
+}
+
+.depth-layer-2 {
+  transform: translateZ(40px);
+  position: relative;
+  z-index: 2;
+}
+
+.depth-layer-3 {
+  transform: translateZ(60px);
+  position: relative;
+  z-index: 3;
+}
+
+/* 3D Bounce Animation */
+.bounce-3d {
+  animation: bounce3D 2s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes bounce3D {
+  0%, 100% {
+    transform: translateY(0) translateZ(0) rotateX(0deg);
+  }
+  50% {
+    transform: translateY(-30px) translateZ(20px) rotateX(10deg);
+  }
+}
+
+/* 3D Pulse Effect */
+.pulse-3d {
+  animation: pulse3D 2s ease-in-out infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes pulse3D {
+  0%, 100% {
+    transform: scale3d(1, 1, 1);
+  }
+  50% {
+    transform: scale3d(1.1, 1.1, 1.1) translateZ(20px);
+  }
+}
+
+/* 3D Spin Animation */
+.spin-3d {
+  animation: spin3D 10s linear infinite;
+  transform-style: preserve-3d;
+}
+
+@keyframes spin3D {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* Glassmorphism 3D */
+.glass-3d {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transform-style: preserve-3d;
+  transition: all 0.4s ease;
+}
+
+.glass-3d:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateZ(20px);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+}
+
+/* 3D Text Effect */
+.text-3d {
+  text-shadow: 
+    1px 1px 0 rgba(0, 0, 0, 0.1),
+    2px 2px 0 rgba(0, 0, 0, 0.1),
+    3px 3px 0 rgba(0, 0, 0, 0.1),
+    4px 4px 0 rgba(0, 0, 0, 0.1),
+    5px 5px 10px rgba(0, 0, 0, 0.3);
+  transform: translateZ(30px);
+}
+
+/* Perspective Container */
+.perspective-container {
+  perspective: 2000px;
+  perspective-origin: 50% 50%;
+}
+
+/* 3D Carousel */
+.carousel-3d {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  transform-style: preserve-3d;
+  animation: rotateCarousel 30s infinite linear;
+}
+
+.carousel-item {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  left: 50%;
+  top: 50%;
+  margin-left: -125px;
+  margin-top: -125px;
+  border-radius: 15px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  backface-visibility: hidden;
+}
+
+@keyframes rotateCarousel {
+  0% { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .card-3d {
+    max-width: 300px;
+    height: 300px;
+  }
+  
+  .card-3d > div {
+    animation-duration: 25s;
+  }
+  
+  .cube-3d {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .cube-face {
+    width: 150px;
+    height: 150px;
+    font-size: 1.5rem;
+  }
+  
+  .cube-face-front,
+  .cube-face-back,
+  .cube-face-right,
+  .cube-face-left,
+  .cube-face-top,
+  .cube-face-bottom {
+    transform: rotateY(var(--rotation, 0deg)) translateZ(75px);
+  }
+  
+  /* Reduce 3D effects on mobile for performance */
+  .hover-3d:hover {
+    transform: translateZ(15px) rotateX(2deg) rotateY(2deg);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .card-3d > div,
+  .cube-3d,
+  .spin-3d,
+  .carousel-3d,
+  .float-3d,
+  .bounce-3d,
+  .pulse-3d {
+    animation: none;
+  }
+  
+  .hover-3d:hover,
+  .tilt-3d:hover,
+  .glass-3d:hover {
+    transform: none;
+  }
+}

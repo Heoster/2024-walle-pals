@@ -246,7 +246,6 @@ function initSoundEffects() {
     try {
         audioContext = new (window.AudioContext || window.webkitAudioContext)();
     } catch (e) {
-        console.log('Web Audio API not supported');
         return;
     }
     
@@ -308,12 +307,9 @@ function initPerformanceMonitoring() {
     // Monitor page load performance
     window.addEventListener('load', () => {
         const perfData = performance.getEntriesByType('navigation')[0];
-        console.log('Page Load Time:', perfData.loadEventEnd - perfData.loadEventStart, 'ms');
-        
         // Monitor memory usage (if available)
         if (performance.memory) {
-            console.log('Memory Usage:', {
-                used: Math.round(performance.memory.usedJSHeapSize / 1048576) + ' MB',
+            + ' MB',
                 total: Math.round(performance.memory.totalJSHeapSize / 1048576) + ' MB'
             });
         }

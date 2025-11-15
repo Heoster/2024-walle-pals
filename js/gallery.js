@@ -342,8 +342,7 @@ class GalleryManager {
     this.setupEventListeners();
     this.setupScrollAnimations();
     this.initializeFilters();
-    console.log('Gallery manager initialized');
-  }
+    }
 
   setupEventListeners() {
     // Tab switching

@@ -1,0 +1,89 @@
+/* Enhanced Image Sizing for Friend Pages */
+.friend-profile-image {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.friend-profile-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+}
+
+.memory-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.memory-card:hover .memory-image img {
+    transform: scale(1.05);
+}
+
+/* Gallery Grid Improvements */
+.memories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.memory-card {
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.memory-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.memory-card h3 {
+    padding: 1rem 1.5rem 0.5rem;
+    color: var(--text-dark);
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.memory-card p {
+    padding: 0 1.5rem 1.5rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .friend-profile-image {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .memories-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .memory-image img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 480px) {
+    .friend-profile-image {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .memory-image img {
+        height: 180px;
+    }
+}

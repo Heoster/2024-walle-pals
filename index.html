@@ -10,15 +10,38 @@
     <link rel="apple-touch-icon" href="assets/favicon.ico">
     <meta name="theme-color" content="#4facfe">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/3d-animations.css">
+    <link rel="stylesheet" href="css/responsive-enhanced.css">
+    <link rel="stylesheet" href="css/mobile-nav-3d.css">
+    <link rel="stylesheet" href="css/loading-animations.css">
+    <link rel="stylesheet" href="css/hero-enhanced.css">
+    <link rel="stylesheet" href="css/navbar-premium.css">
+    <link rel="stylesheet" href="css/features-premium.css">
+    <link rel="stylesheet" href="css/carousel-3d-enhanced.css">
+    <link rel="stylesheet" href="css/brick-wall-enhanced.css">
+    <link rel="stylesheet" href="css/footer-premium.css">
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/wall-of-frames.css">
     <link rel="stylesheet" href="css/responsive.css">
     <link rel="stylesheet" href="css/stability-enhancements.css">
+    <link rel="stylesheet" href="css/homepage-enhancements.css">
+    <link rel="stylesheet" href="css/instagram-display.css">
+    <link rel="stylesheet" href="css/memory-enhancements.css">
+    <link rel="stylesheet" href="css/social-features.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+        </div>
+    </div>
+
     <header class="header">
         <nav class="nav">
             <div class="nav-brand">
@@ -30,6 +53,7 @@
                 <li><a href="#wall-of-frames" class="nav-link">Friends</a></li>
                 <li><a href="memories.html" class="nav-link">Memories</a></li>
                 <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="memory-upload.html" class="nav-link">Upload Memory</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
             <button class="theme-toggle" aria-label="Toggle theme" id="themeToggle">
@@ -48,22 +72,69 @@
 
     <main>
         <section id="home" class="hero">
+            <div class="particles-container" id="particles"></div>
             <div class="hero-content">
+                <div class="hero-badge animate-fade-in-down">✨ 2024 Edition</div>
                 <h1 class="hero-title">Welcome to Our Circle</h1>
                 <p class="hero-subtitle">Where friendships come alive through memories and connections</p>
-                <div class="hero-shapes">
-                    <div class="floating-shape shape-1"></div>
-                    <div class="floating-shape shape-2"></div>
-                    <div class="floating-shape shape-3"></div>
+                <div class="hero-cta">
+                    <a href="#wall-of-frames" class="cta-button primary">Meet Our Friends</a>
+                    <a href="memories.html" class="cta-button secondary">View Memories</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-box">
+                        <span class="stat-value" data-target="30">0</span>
+                        <span class="stat-label">Friends</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value" data-target="500">0</span>
+                        <span class="stat-label">Memories</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value" data-target="365">0</span>
+                        <span class="stat-label">Days Together</span>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll to explore</span>
+                <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <section class="highlights-section">
+            <div class="container">
+                <h2 class="section-title reveal">What Makes Us Special</h2>
+                <p class="section-subtitle reveal">The bonds that keep us together</p>
+                <div class="highlights-grid">
+                    <div class="highlight-card reveal-scale stagger-1">
+                        <div class="highlight-icon">🎓</div>
+                        <h3>Learning Together</h3>
+                        <p>From classrooms to virtual sessions, we've grown together through every challenge</p>
+                    </div>
+                    <div class="highlight-card reveal-scale stagger-2">
+                        <div class="highlight-icon">🎉</div>
+                        <h3>Celebrating Life</h3>
+                        <p>Every moment is a celebration when we're together, creating memories that last forever</p>
+                    </div>
+                    <div class="highlight-card reveal-scale stagger-3">
+                        <div class="highlight-icon">💪</div>
+                        <h3>Supporting Each Other</h3>
+                        <p>Through thick and thin, we stand by each other, making every challenge easier</p>
+                    </div>
+                    <div class="highlight-card reveal-scale stagger-4">
+                        <div class="highlight-icon">🌟</div>
+                        <h3>Creating Memories</h3>
+                        <p>Every day brings new adventures and stories that we'll cherish for a lifetime</p>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- 3D Card Animation Section -->
         <section class="card-3d-section">
             <div class="container">
-                <h2 class="section-title">Memories in Motion</h2>
-                <p class="section-subtitle">Our cherished moments spinning through time</p>
+                <h2 class="section-title reveal">Memories in Motion</h2>
+                <p class="section-subtitle reveal">Our cherished moments spinning through time</p>
                 <div class="card-3d">
                     <div style="background-image: url('assets/memories/memories1.jpg');"></div>
                     <div style="background-image: url('assets/memories/memories2.jpg');"></div>
@@ -81,60 +152,58 @@
 
         <section id="wall-of-frames" class="wall-section">
             <div class="container">
-                <h2 class="section-title">Our Wall of Frames</h2>
-                <p class="section-subtitle">Click on any frame to visit a friend's special page</p>
+                <h2 class="section-title reveal">Our Wall of Frames</h2>
+                <p class="section-subtitle reveal">Click on any frame to visit a friend's special page</p>
                 <div class="wall-of-frames">
-                    <!-- Friend frames will be generated here -->
+                    
                 </div>
             </div>
         </section>
 
-        <!-- Home Schooling Section -->
         <section class="home-schooling-section">
             <div class="container">
-                <h2 class="section-title">Home Learning Journey</h2>
-                <p class="section-subtitle">How we stayed connected during remote learning</p>
+                <h2 class="section-title reveal">Home Learning Journey</h2>
+                <p class="section-subtitle reveal">How we stayed connected during remote learning</p>
                 
                 <div class="schooling-grid">
-                    <div class="schooling-content">
+                    <div class="schooling-content reveal-left">
                         <h3>Virtual Classrooms</h3>
                         <p>When the world changed, our friendship didn't. We adapted to online learning while keeping our bonds strong through virtual study sessions, group projects, and shared experiences.</p>
                         
                         <div class="schooling-stats">
-                            <div class="stat-item">
-                                <span class="stat-number">100+</span>
+                            <div class="stat-item reveal-scale stagger-1">
+                                <span class="stat-number" data-count="100">100+</span>
                                 <span class="stat-label">Online Sessions</span>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-number">30</span>
+                            <div class="stat-item reveal-scale stagger-2">
+                                <span class="stat-number" data-count="30">30</span>
                                 <span class="stat-label">Friends Connected</span>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-number">365</span>
+                            <div class="stat-item reveal-scale stagger-3">
+                                <span class="stat-number" data-count="365">365</span>
                                 <span class="stat-label">Days Together</span>
                             </div>
                         </div>
                         
-                        <a href="gallery.html" class="schooling-btn">View Learning Memories</a>
+                        <a href="gallery.html" class="schooling-btn">View Learning Memories →</a>
                     </div>
                     
-                    <div class="schooling-images">
+                    <div class="schooling-images reveal-right">
                         <div class="image-grid">
-                            <img src="assets/school/gallery19.jpg" alt="Home Learning 1" class="schooling-img">
-                            <img src="assets/school/gallery20.jpg" alt="Home Learning 2" class="schooling-img">
-                            <img src="assets/school/gallery21.jpg" alt="Home Learning 3" class="schooling-img">
-                            <img src="assets/school/gallery22.jpg" alt="Home Learning 4" class="schooling-img">
+                            <img src="assets/school/gallery1.jpg" alt="Home Learning 1" class="schooling-img" loading="lazy">
+                            <img src="assets/school/gallery2.jpg" alt="Home Learning 2" class="schooling-img" loading="lazy">
+                            <img src="assets/school/gallery7.jpg" alt="Home Learning 3" class="schooling-img" loading="lazy">
+                            <img src="assets/school/gallery8.jpg" alt="Home Learning 4" class="schooling-img" loading="lazy">
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Brick Wall Integration -->
         <section class="brick-wall-section">
             <div class="container">
-                <h2 class="section-title">Brick Wall of Memories</h2>
-                <p class="section-subtitle">Each name carved with love and friendship</p>
+                <h2 class="section-title reveal">Brick Wall of Memories</h2>
+                <p class="section-subtitle reveal">Each name carved with love and friendship</p>
                 <div class="brick-wall-preview">
                     <div class="brick-wall-container">
                         <div class="brick-row">
@@ -145,7 +214,7 @@
                         </div>
                         <div class="brick-row offset">
                             <div class="brick"><span class="carved-name">LAKSHAY</span></div>
-                            <div class="brick"><span class="carved-name">PASANDU</span></div>
+                            <div class="brick"><span class="carved-name">NAWAJISH</span></div>
                             <div class="brick"><span class="carved-name">VISHESH</span></div>
                             <div class="brick"><span class="carved-name">SAHIL</span></div>
                         </div>
@@ -191,11 +260,10 @@
             </div>
         </section>
 
-        <!-- Infinite Zoom Animation Block -->
         <section class="infinite-zoom-section">
             <div class="container">
-                <h2 class="section-title">Infinite Memories</h2>
-                <p class="section-subtitle">Our friendship keeps growing and growing</p>
+                <h2 class="section-title reveal">Infinite Memories</h2>
+                <p class="section-subtitle reveal">Our friendship keeps growing and growing</p>
                 <div class="zoom-container">
                     <div class="zoom-element">
                         <div class="zoom-circle"></div>
@@ -221,9 +289,20 @@
     <script src="js/network-monitor.js"></script>
     <script src="js/image-fallback.js"></script>
     <script src="js/performance-monitor.js"></script>
+    <script src="js/3d-interactions.js"></script>
+    <script src="js/hero-enhanced.js"></script>
+    <script src="js/navbar-premium.js"></script>
+    <script src="js/features-tilt.js"></script>
+    <script src="js/carousel-3d-enhanced.js"></script>
+    <script src="js/brick-wall-enhanced.js"></script>
     <script src="js/main.js"></script>
     <script src="js/wall-frames.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/homepage-enhancements.js"></script>
+    <script src="js/instagram-display.js"></script>
+    <script src="js/memory-enhancements.js"></script>
+    <script src="js/social-features.js"></script>
     <script src="test-stability.js"></script>
 </body>
 </html>
+

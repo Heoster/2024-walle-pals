@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="css/animations.css">
     <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/memory-enhancements.css">
+    <link rel="stylesheet" href="css/instagram-display.css">
+    <link rel="stylesheet" href="css/social-features.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -32,7 +35,7 @@
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="index.html#wall-of-frames" class="nav-link">Friends</a></li>
                 <li><a href="memories.html" class="nav-link">Memories</a></li>
-                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>`n                <li><a href="memory-upload.html" class="nav-link">Upload Memory</a></li>
                 <li><a href="contact.html" class="nav-link">Contact</a></li>
             </ul>
             <button class="nav-toggle" aria-label="Toggle navigation">
@@ -44,7 +47,7 @@
     </header>
 
     <main>
-        <!-- Gallery Hero Section -->
+        
         <section class="gallery-hero">
             <div class="container">
                 <div class="hero-content animate-fade-in-up">
@@ -59,7 +62,6 @@
             </div>
         </section>
 
-        <!-- Gallery Navigation -->
         <section class="gallery-nav-section">
             <div class="container">
                 <div class="gallery-tabs">
@@ -75,13 +77,11 @@
             </div>
         </section>
 
-        <!-- Public Gallery Section -->
         <section id="public-gallery" class="gallery-section active">
             <div class="container">
                 <h2 class="section-title">Public Memories</h2>
                 <p class="section-subtitle">Shared moments for everyone to enjoy</p>
 
-                <!-- Filter Controls -->
                 <div class="gallery-filters">
                     <button class="filter-btn active" data-filter="all">All</button>
                     <button class="filter-btn" data-filter="photos">Photos</button>
@@ -90,9 +90,8 @@
                     <button class="filter-btn" data-filter="fun">Fun Times</button>
                 </div>
 
-                <!-- Public Gallery Grid -->
                 <div class="gallery-grid" id="public-grid">
-                    <!-- Real School Photos -->
+                    
                     <div class="gallery-item photo reveal-scale stagger-1" data-category="photos events">
                         <div class="gallery-image">
                             <img src="assets/school/gallery1.jpg" alt="School Memory 1" loading="lazy">
@@ -273,7 +272,6 @@
                         </div>
                     </div>
 
-                    <!-- Additional landscape images for home schooling -->
                     <div class="gallery-item photo reveal-scale stagger-13" data-category="photos events">
                         <div class="gallery-image">
                             <img src="assets/school/gallery13.jpg" alt="Home Learning 1" loading="lazy">
@@ -364,7 +362,6 @@
                         </div>
                     </div>
 
-                    <!-- Additional gallery images -->
                     <div class="gallery-item photo reveal-scale stagger-19" data-category="photos events">
                         <div class="gallery-image">
                             <img src="assets/school/gallery19.jpg" alt="School Memory 19" loading="lazy">
@@ -653,7 +650,6 @@
             </div>
         </section>
 
-        <!-- Infinite Zoom Animation Block -->
         <section class="infinite-zoom-section">
             <div class="container">
                 <h2 class="section-title">Infinite Memories</h2>
@@ -673,10 +669,9 @@
             </div>
         </section>
 
-        <!-- Private Gallery Section -->
         <section id="private-gallery" class="gallery-section">
             <div class="container">
-                <!-- Password Protection -->
+                
                 <div class="password-protection" id="password-screen">
                     <div class="password-container">
                         <div class="lock-animation">
@@ -697,12 +692,10 @@
                     </div>
                 </div>
 
-                <!-- Private Gallery Content (Hidden by default) -->
                 <div class="private-content" id="private-content" style="display: none;">
                     <h2 class="section-title">Private Memories</h2>
                     <p class="section-subtitle">Exclusive content for our inner circle</p>
 
-                    <!-- Private Filter Controls -->
                     <div class="gallery-filters">
                         <button class="filter-btn active" data-filter="all">All</button>
                         <button class="filter-btn" data-filter="photos">Photos</button>
@@ -711,7 +704,6 @@
                         <button class="filter-btn" data-filter="exclusive">Exclusive</button>
                     </div>
 
-                    <!-- Private Gallery Grid -->
                     <div class="gallery-grid" id="private-grid">
                         <div class="gallery-item photo reveal-scale stagger-1" data-category="photos personal">
                             <div class="gallery-image private-item">
@@ -816,7 +808,6 @@
                         </div>
                     </div>
 
-                    <!-- Logout Button -->
                     <div class="private-actions">
                         <button class="logout-btn" onclick="logout()">
                             <span>🔒</span> Lock Gallery
@@ -827,13 +818,12 @@
         </section>
     </main>
 
-    <!-- Lightbox Modal -->
     <div class="lightbox" id="lightbox">
         <div class="lightbox-overlay" onclick="closeLightbox()"></div>
         <div class="lightbox-content">
             <button class="lightbox-close" onclick="closeLightbox()">✕</button>
             <div class="lightbox-media" id="lightbox-media">
-                <!-- Media content will be inserted here -->
+                
             </div>
             <div class="lightbox-info">
                 <h3 id="lightbox-title">Media Title</h3>
@@ -852,9 +842,14 @@
         </div>
     </footer>
 
+    <script src="js/instagram-display.js"></script>
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/memory-enhancements.js"></script>
+    <script src="js/social-features.js"></script>
     <script src="js/gallery.js"></script>
 </body>
 
 </html>
+
+

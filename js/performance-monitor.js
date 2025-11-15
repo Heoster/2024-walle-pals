@@ -33,8 +33,7 @@ class PerformanceMonitor {
       this.monitorInteractions();
       this.setupPerformanceObserver();
       
-      console.log('Performance monitor initialized');
-    } catch (error) {
+      } catch (error) {
       console.error('Failed to initialize performance monitor:', error);
     }
   }
@@ -51,8 +50,7 @@ class PerformanceMonitor {
             this.reportIssue('slow-load', `Page load took ${this.metrics.loadTime}ms`);
           }
           
-          console.log(`Page load time: ${this.metrics.loadTime}ms`);
-        }
+          }
       } catch (error) {
         console.error('Error measuring load time:', error);
       }
@@ -136,11 +134,9 @@ class PerformanceMonitor {
         const paintObserver = new PerformanceObserver((list) => {
           list.getEntries().forEach(entry => {
             if (entry.name === 'first-contentful-paint') {
-              console.log(`First Contentful Paint: ${entry.startTime}ms`);
-            }
+              }
             if (entry.name === 'largest-contentful-paint') {
-              console.log(`Largest Contentful Paint: ${entry.startTime}ms`);
-            }
+              }
           });
         });
         
@@ -197,8 +193,6 @@ class PerformanceMonitor {
   
   // Optimize for performance when issues detected
   optimizeForPerformance() {
-    console.log('Optimizing for performance...');
-    
     // Reduce animation complexity
     document.body.classList.add('performance-mode');
     
@@ -222,8 +216,6 @@ class PerformanceMonitor {
   
   // Optimize memory usage
   optimizeMemoryUsage() {
-    console.log('Optimizing memory usage...');
-    
     // Clear unused images
     const images = document.querySelectorAll('img');
     images.forEach(img => {
@@ -296,7 +288,6 @@ class PerformanceMonitor {
       }
     };
     
-    console.log('Performance Report:', report);
     return report;
   }
 }

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Features Test - Walle Pals</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/3d-animations.css">
+    <link rel="stylesheet" href="css/responsive-enhanced.css">
+    <link rel="stylesheet" href="css/loading-animations.css">
+    <style>
+        body {
+            padding: 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .test-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .test-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .test-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .demo-box {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-section">
+        <h1 class="test-title">🎨 3D Animation Tests</h1>
+        <p>Hover over each card to see the 3D effects in action!</p>
+    </div>
+
+    <div class="test-section">
+        <h2 class="test-title">1. 3D Tilt Effect</h2>
+        <div class="test-grid">
+            <div class="test-card hover-3d">
+                <div class="demo-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    Hover Me!
+                </div>
+                <h3>3D Tilt</h3>
+                <p>Card tilts in 3D on hover</p>
+            </div>
+            
+            <div class="test-card hover-3d">
+                <div class="demo-box" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    Hover Me!
+                </div>
+                <h3>3D Tilt</h3>
+                <p>Smooth 3D transform</p>
+            </div>
+            
+            <div class="test-card hover-3d">
+                <div class="demo-box" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    Hover Me!
+                </div>
+                <h3>3D Tilt</h3>
+                <p>With shadow depth</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2 class="test-title">2. Floating 3D Animation</h2>
+        <div class="test-grid">
+            <div class="test-card">
+                <div class="demo-box float-3d" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                    🎈
+                </div>
+                <h3>Float 3D</h3>
+                <p>Continuous floating motion</p>
+            </div>
+            
+            <div class="test-card">
+                <div class="demo-box float-3d" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
+                    ⭐
+                </div>
+                <h3>Float 3D</h3>
+                <p>Smooth 3D rotation</p>
+            </div>
+            
+            <div class="test-card">
+                <div class="demo-box float-3d" style="background: linear-gradient(135deg, #ff00ff 0%, #00ffff 100%);">
+                    💫
+                </div>
+                <h3>Float 3D</h3>
+                <p>Depth animation</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2 class="test-title">3. Glassmorphism 3D</h2>
+        <div class="test-grid">
+            <div class="test-card glass-3d">
+                <div class="demo-box" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+                    Glass
+                </div>
+                <h3>Glass Effect</h3>
+                <p>Frosted glass with 3D</p>
+            </div>
+            
+            <div class="test-card glass-3d">
+                <div class="demo-box" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+                    Glass
+                </div>
+                <h3>Glass Effect</h3>
+                <p>Hover for depth</p>
+            </div>
+            
+            <div class="test-card glass-3d">
+                <div class="demo-box" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px);">
+                    Glass
+                </div>
+                <h3>Glass Effect</h3>
+                <p>Smooth transition</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2 class="test-title">4. Flip Card 3D</h2>
+        <div class="test-grid">
+            <div class="flip-card-3d">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Front Side</h2>
+                        <p>Hover to flip!</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Back Side</h2>
+                        <p>Amazing 3D flip!</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flip-card-3d">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Card 2</h2>
+                        <p>Hover me!</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Flipped!</h2>
+                        <p>Smooth rotation</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flip-card-3d">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <h2>Card 3</h2>
+                        <p>Try it!</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h2>Success!</h2>
+                        <p>3D transform</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2 class="test-title">5. Loading Animations</h2>
+        <div class="test-grid">
+            <div class="test-card">
+                <div class="loader" style="margin: 2rem auto;">
+                    <div class="loader-ring"></div>
+                    <div class="loader-ring"></div>
+                    <div class="loader-ring"></div>
+                </div>
+                <h3>Loader</h3>
+                <p>Spinning rings</p>
+            </div>
+            
+            <div class="test-card">
+                <div class="skeleton" style="width: 100%; height: 100px; margin: 1rem 0;"></div>
+                <div class="skeleton" style="width: 80%; height: 20px; margin: 0.5rem auto;"></div>
+                <div class="skeleton" style="width: 60%; height: 20px; margin: 0.5rem auto;"></div>
+                <h3>Skeleton</h3>
+                <p>Loading placeholder</p>
+            </div>
+            
+            <div class="test-card">
+                <div class="loading-dots" style="font-size: 2rem; margin: 2rem 0;">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <h3>Dots</h3>
+                <p>Animated dots</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2 class="test-title">6. Pulse & Bounce</h2>
+        <div class="test-grid">
+            <div class="test-card">
+                <div class="demo-box pulse-3d" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    Pulse
+                </div>
+                <h3>Pulse 3D</h3>
+                <p>Breathing effect</p>
+            </div>
+            
+            <div class="test-card">
+                <div class="demo-box bounce-3d" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                    Bounce
+                </div>
+                <h3>Bounce 3D</h3>
+                <p>Bouncing motion</p>
+            </div>
+            
+            <div class="test-card">
+                <div class="demo-box spin-3d" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                    Spin
+                </div>
+                <h3>Spin 3D</h3>
+                <p>Continuous rotation</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2 class="test-title">✅ All Tests Complete!</h2>
+        <p style="text-align: center; font-size: 1.2rem;">
+            If you can see all the animations above, your 3D features are working perfectly! 🎉
+        </p>
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="index.html" style="display: inline-block; padding: 1rem 2rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 50px; font-weight: 600;">
+                Back to Main Site
+            </a>
+        </div>
+    </div>
+
+    <script src="js/3d-interactions.js"></script>
+</body>
+</html>

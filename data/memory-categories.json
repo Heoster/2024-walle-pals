@@ -1,0 +1,52 @@
+{
+  "categories": [
+    {
+      "icon": "🎮",
+      "name": "Gaming",
+      "color": "#4caf50",
+      "id": "gaming"
+    },
+    {
+      "icon": "📚",
+      "name": "Study Sessions",
+      "color": "#2196f3",
+      "id": "study"
+    },
+    {
+      "icon": "🎉",
+      "name": "Celebrations",
+      "color": "#ff9800",
+      "id": "celebration"
+    },
+    {
+      "icon": "🏞️",
+      "name": "Adventures",
+      "color": "#8bc34a",
+      "id": "adventure"
+    },
+    {
+      "icon": "🍕",
+      "name": "Food Adventures",
+      "color": "#ff5722",
+      "id": "food"
+    },
+    {
+      "icon": "😂",
+      "name": "Funny Moments",
+      "color": "#ffeb3b",
+      "id": "funny"
+    },
+    {
+      "icon": "🏆",
+      "name": "Achievements",
+      "color": "#ffc107",
+      "id": "achievement"
+    },
+    {
+      "icon": "😊",
+      "name": "Casual Hangouts",
+      "color": "#9c27b0",
+      "id": "casual"
+    }
+  ]
+}

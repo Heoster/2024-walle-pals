@@ -1,0 +1,235 @@
+/* Enhanced Friend Gallery Styles */
+
+.pasandu-gallery {
+    padding: var(--space-3xl) 0;
+    background: linear-gradient(135deg, #fff9e6 0%, #fff3d4 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.pasandu-gallery::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="sunshine" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><text x="10" y="15" text-anchor="middle" fill="rgba(255,193,7,0.1)" font-size="12">☀️</text></pattern></defs><rect width="100" height="100" fill="url(%23sunshine)"/></svg>');
+    opacity: 0.3;
+    animation: float 30s linear infinite;
+}
+
+.gallery-grid-enhanced {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.gallery-item {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    background: var(--white);
+}
+
+.gallery-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-image {
+    position: relative;
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+}
+
+.gallery-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-image img {
+    transform: scale(1.1);
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(255, 193, 7, 0.9) 0%,
+        rgba(255, 152, 0, 0.9) 100%
+    );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.gallery-item:hover .image-overlay {
+    opacity: 1;
+}
+
+.overlay-content {
+    text-align: center;
+    color: var(--white);
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .overlay-content {
+    transform: translateY(0);
+}
+
+.overlay-content h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.overlay-content p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Friend Quotes Section */
+.friend-quotes {
+    padding: var(--space-3xl) 0;
+    background: var(--background-light);
+}
+
+.quotes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
+}
+
+.quote-card {
+    background: var(--white);
+    padding: var(--space-xl);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.quote-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.quote-card::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 4rem;
+    color: var(--accent-color);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+}
+
+.quote-card blockquote {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin: 0 0 var(--space-md) 0;
+    font-style: italic;
+}
+
+.quote-card cite {
+    display: block;
+    text-align: right;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.quote-card cite::before {
+    content: '— ';
+}
+
+/* Enhanced Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-10px) rotate(1deg); }
+    66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .gallery-grid-enhanced {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: var(--space-md);
+    }
+    
+    .gallery-image {
+        height: 220px;
+    }
+    
+    .quotes-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-md);
+    }
+    
+    .quote-card {
+        padding: var(--space-lg);
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid-enhanced {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-image {
+        height: 200px;
+    }
+}
+
+/* Stagger Animation Classes */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+.stagger-6 { animation-delay: 0.6s; }
+.stagger-7 { animation-delay: 0.7s; }
+.stagger-8 { animation-delay: 0.8s; }
+.stagger-9 { animation-delay: 0.9s; }
+
+/* Reveal Scale Animation */
+.reveal-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-scale.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Section Subtitle Styling */
+.section-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-top: var(--space-sm);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}

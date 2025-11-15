@@ -1,11 +1,11 @@
 // Friends data with proper image mapping and fallbacks
 const friends = [
-  { name: 'Harsh', description: 'The adventurous spirit', image: 'assets/school/harsh.jpg', fallback: 'assets/school/gallery1.jpg' },
+  { name: 'Harsh', description: 'The adventurous spirit', image: 'assets/school/harsh.jpg', fallback: 'assets/school/gallery1.jpg', instagram: 'codeex._.heoster' },
   { name: 'Parduman', description: 'Always ready to help', image: 'assets/school/gallery2.jpg', fallback: 'assets/school/gallery2.jpg' },
   { name: 'Kartik', description: 'The creative genius', image: 'assets/school/kartik.jpg', fallback: 'assets/school/gallery3.jpg' },
   { name: 'Pankaj', description: 'Master of good vibes', image: 'assets/school/pankaj.jpg', fallback: 'assets/school/gallery4.jpg' },
   { name: 'Lakshay', description: 'The loyal companion', image: 'assets/school/gallery5.jpg', fallback: 'assets/school/gallery5.jpg' },
-  { name: 'Pasandu', description: 'The gentle soul', image: 'assets/school/pasandu (1).jpg', fallback: 'assets/school/gallery6.jpg' },
+  { name: 'Nawajish', description: 'The gentle soul', image: 'assets/school/nawajish.jpg', fallback: 'assets/school/gallery6.jpg' },
   { name: 'Vishesh', description: 'The wise counselor', image: 'assets/school/vishesh.jpg', fallback: 'assets/school/gallery7.jpg' },
   { name: 'Sahil', description: 'Always up for fun', image: 'assets/school/sahil.jpg', fallback: 'assets/school/gallery8.jpg' },
   { name: 'Tushar', description: 'The problem solver', image: 'assets/school/gallery9.jpg', fallback: 'assets/school/gallery9.jpg' },
@@ -26,7 +26,7 @@ const friends = [
   { name: 'Rajat', description: 'Full of ideas', image: 'assets/school/gallery24.jpg', fallback: 'assets/school/gallery24.jpg' },
   { name: 'Aditya', description: 'The curious mind', image: 'assets/school/gallery25.jpg', fallback: 'assets/school/gallery25.jpg' },
   { name: 'Rudra', description: 'Bold and fearless', image: 'assets/school/gallery26.jpg', fallback: 'assets/school/gallery26.jpg' },
-  { name: 'Mudashir', description: 'The storyteller', image: 'assets/school/mudahsir.jpg', fallback: 'assets/school/gallery27.jpg' },
+  { name: 'Mudashir', description: 'The storyteller', image: 'assets/school/mudashir.jpg', fallback: 'assets/school/gallery27.jpg' },
   { name: 'Ravi', description: 'Brings light to darkness', image: 'assets/school/gallery28.jpg', fallback: 'assets/school/gallery28.jpg' },
   { name: 'Aashish', description: 'The optimistic dreamer', image: 'assets/school/gallery29.jpg', fallback: 'assets/school/gallery29.jpg' },
   { name: 'Rijwaan', description: 'The caring heart', image: 'assets/school/gallery30.jpg', fallback: 'assets/school/gallery30.jpg' }
@@ -120,8 +120,6 @@ function initializeWallOfFrames() {
         // Setup intersection observer for performance
         setupFrameObserver(wallContainer);
         
-        console.log(`Wall of frames initialized with ${friends.length} friends`);
-        
         // Dispatch custom event for other components
         wallContainer.dispatchEvent(new CustomEvent('wallInitialized', {
           detail: { friendCount: friends.length }
@@ -155,8 +153,6 @@ function setupFrameEventListeners(wallContainer) {
         frame.addEventListener('click', (e) => {
           try {
             const friendName = friends[index]?.name || 'Unknown';
-            console.log(`Navigating to ${friendName}'s page`);
-            
             // Add loading state
             frame.classList.add('loading');
             frame.setAttribute('aria-busy', 'true');

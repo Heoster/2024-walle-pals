@@ -5,7 +5,7 @@ const instagramAccounts = {
     'kartik': 'kartik_bharadwaj72',
     'pankaj': '__pankajthakur2',
     'lakshay': '1__numbri__',
-    'pasandu': 'official_nawajish_295',
+    'nawajish': 'official_nawajish_295',
     'vishesh': 'vishesh_soam_07',
     'sahil': '_imkhansahil_',
     'tushar': 'rjput_tushar.0007',

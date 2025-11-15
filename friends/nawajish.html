@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nawajish - 2024 Walle Pals</title>
+  <meta name="description" content="Brings Joy Everywhere - Like sunshine breaking through clouds, Nawajish brightens every moment with his infectious energy and warmth.">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/3d-animations.css">
+  <link rel="stylesheet" href="../css/hero-enhanced.css">
+  <link rel="stylesheet" href="../css/navbar-premium.css">
+  <link rel="stylesheet" href="../css/friend-page-premium.css">
+  <link rel="stylesheet" href="../css/responsive-enhanced.css">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  
+  <link rel="icon" href="../assets/favicon.ico">
+</head>
+<body class="friend-page" data-friend="nawajish">
+  
+  <!-- Page Loader -->
+  <div class="page-loader" id="pageLoader">
+    <div class="loader">
+      <div class="loader-ring"></div>
+      <div class="loader-ring"></div>
+      <div class="loader-ring"></div>
+    </div>
+    <p>Loading Nawajish's Page...</p>
+  </div>
+
+  <!-- Navigation -->
+  <header class="header navbar-premium">
+    <nav class="nav">
+      <div class="nav-brand">
+        <a href="../index.html" class="nav-logo">
+          <div class="logo-icon">
+            <span class="logo-emoji">🎓</span>
+            <div class="logo-pulse"></div>
+          </div>
+          <div class="logo-text">
+            <span class="logo-title">Walle Pals</span>
+            <span class="logo-subtitle">2024</span>
+          </div>
+        </a>
+      </div>
+      <ul class="nav-menu">
+        <li><a href="../index.html" class="nav-link">🏠 Home</a></li>
+        <li><a href="../index.html#wall-of-frames" class="nav-link">👥 Friends</a></li>
+        <li><a href="../memories.html" class="nav-link">📸 Memories</a></li>
+        <li><a href="../gallery.html" class="nav-link">🎨 Gallery</a></li>
+      </ul>
+      <button class="nav-toggle" id="hamburger">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </nav>
+  </header>
+
+  <!-- Friend Hero -->
+  <section class="friend-hero-premium">
+    <div class="hero-background-animated">
+      <div class="gradient-orb orb-1"></div>
+      <div class="gradient-orb orb-2"></div>
+      <div class="gradient-orb orb-3"></div>
+      <canvas id="particles-canvas"></canvas>
+    </div>
+    
+    <div class="hero-content-friend">
+      <div class="profile-card-3d">
+        <div class="profile-avatar-wrapper">
+          <div class="avatar-glow"></div>
+          <img src="../assets/friends/nawajish.jpg" alt="Nawajish" class="profile-avatar" onerror="this.src='../assets/favicon.ico'">
+        </div>
+        
+        <div class="profile-info">
+          <div class="profile-emoji">☀️</div>
+          <h1 class="profile-name">Nawajish</h1>
+          <p class="profile-tagline">Brings Joy Everywhere</p>
+          
+          <!-- Instagram Link with Animation -->
+          <a href="https://instagram.com/official_nawajish_295" target="_blank" class="instagram-link-animated">
+            <span class="instagram-icon">
+              <svg viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </span>
+            <span class="instagram-text">@official_nawajish_295</span>
+            <span class="instagram-shine"></span>
+          </a>
+          
+          <!-- Story Quote -->
+          <div class="friend-story">
+            <div class="story-icon">💭</div>
+            <blockquote class="story-text">"Like sunshine breaking through clouds, Nawajish brightens every moment with his infectious energy and warmth."</blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Photo Gallery -->
+  <section class="friend-gallery-section">
+    <div class="container">
+      <h2 class="section-title">📸 Memories with Nawajish</h2>
+      <div class="gallery-grid" id="gallery-grid">
+        <!-- Photos will be loaded here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Comments Section -->
+  <section class="comments-section-premium">
+    <div class="container">
+      <h2 class="section-title">💬 Leave a Message</h2>
+      
+      <form class="comment-form-premium" id="commentForm">
+        <div class="form-group">
+          <input type="text" placeholder="Your Name" required id="commentName" maxlength="50">
+        </div>
+        <div class="form-group">
+          <input type="email" placeholder="Your Email (optional)" id="commentEmail">
+        </div>
+        <div class="form-group">
+          <textarea placeholder="Your message for Nawajish..." required id="commentMessage" rows="4" maxlength="500"></textarea>
+        </div>
+        <button type="submit" class="btn-submit-comment">
+          <span>Send Message</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </form>
+
+      <div class="comments-list" id="commentsList">
+        <!-- Comments will appear here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Back to Friends -->
+  <section class="back-section">
+    <div class="container">
+      <a href="../index.html#wall-of-frames" class="btn-back">
+        <span>←</span>
+        <span>Back to All Friends</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Toast Notifications -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="../js/hero-enhanced.js"></script>
+  <script src="../js/navbar-premium.js"></script>
+  <script src="../js/friend-page.js"></script>
+</body>
+</html>

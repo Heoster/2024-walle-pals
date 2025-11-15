@@ -1,0 +1,261 @@
+/* ===================================
+   MOBILE NAVIGATION WITH 3D EFFECTS
+   Enhanced mobile menu experience
+   =================================== */
+
+/* Mobile Menu Styles */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    flex-direction: column;
+    padding: 2rem;
+    gap: 0;
+    z-index: 999;
+    overflow-y: auto;
+    transform-origin: top center;
+  }
+  
+  [data-theme="dark"] .nav-menu {
+    background: rgba(26, 32, 44, 0.98);
+  }
+  
+  .nav-menu.active {
+    display: flex;
+    animation: menuSlideIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  @keyframes menuSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
+  .nav-menu li {
+    opacity: 0;
+    transform: translateX(-30px);
+    animation: menuItemSlide 0.3s ease forwards;
+    margin-bottom: 0.5rem;
+  }
+  
+  .nav-menu.active li:nth-child(1) { animation-delay: 0.1s; }
+  .nav-menu.active li:nth-child(2) { animation-delay: 0.15s; }
+  .nav-menu.active li:nth-child(3) { animation-delay: 0.2s; }
+  .nav-menu.active li:nth-child(4) { animation-delay: 0.25s; }
+  .nav-menu.active li:nth-child(5) { animation-delay: 0.3s; }
+  .nav-menu.active li:nth-child(6) { animation-delay: 0.35s; }
+  
+  @keyframes menuItemSlide {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  .nav-link {
+    display: block;
+    padding: 1rem 1.5rem;
+    font-size: 1.1rem;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  [data-theme="dark"] .nav-link {
+    background: rgba(45, 55, 72, 0.5);
+  }
+  
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+  }
+  
+  .nav-link:active::before {
+    left: 100%;
+  }
+  
+  .nav-link:active {
+    transform: scale(0.95);
+    background: rgba(102, 126, 234, 0.2);
+  }
+  
+  .nav-link.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+  
+  /* Hamburger Animation */
+  .nav-toggle {
+    display: flex;
+    position: relative;
+    z-index: 1000;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-toggle span {
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background: var(--text-primary);
+    border-radius: 3px;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  [data-theme="dark"] .nav-toggle span {
+    background: var(--dark-text-primary);
+  }
+  
+  .nav-toggle span:nth-child(1) {
+    transform: translateY(-8px);
+  }
+  
+  .nav-toggle span:nth-child(2) {
+    transform: translateY(0);
+  }
+  
+  .nav-toggle span:nth-child(3) {
+    transform: translateY(8px);
+  }
+  
+  .nav-toggle.active span:nth-child(1) {
+    transform: translateY(0) rotate(45deg);
+  }
+  
+  .nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  
+  .nav-toggle.active span:nth-child(3) {
+    transform: translateY(0) rotate(-45deg);
+  }
+  
+  /* Menu Overlay */
+  .nav-menu.active::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  /* Theme Toggle in Mobile Menu */
+  .theme-toggle {
+    margin-left: 0;
+    margin-top: 1rem;
+    width: 100%;
+    height: 50px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    justify-content: center;
+  }
+  
+  [data-theme="dark"] .theme-toggle {
+    background: rgba(45, 55, 72, 0.5);
+  }
+  
+  .theme-toggle:hover {
+    background: rgba(102, 126, 234, 0.2);
+  }
+}
+
+/* Tablet Adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-menu {
+    gap: 1rem;
+  }
+  
+  .nav-link {
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Touch Feedback */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link {
+    -webkit-tap-highlight-color: rgba(102, 126, 234, 0.2);
+  }
+  
+  .nav-link:active {
+    transform: scale(0.98);
+  }
+  
+  .nav-toggle:active {
+    transform: scale(0.9);
+  }
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .nav-menu.active,
+  .nav-menu li,
+  .nav-link,
+  .nav-toggle span {
+    animation: none;
+    transition: none;
+  }
+  
+  .nav-menu.active {
+    opacity: 1;
+    transform: none;
+  }
+  
+  .nav-menu li {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Focus Styles for Accessibility */
+.nav-link:focus-visible {
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
+.nav-toggle:focus-visible {
+  outline: 3px solid #667eea;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* Safe Area for Notched Devices */
+@supports (padding: max(0px)) {
+  .nav-menu {
+    padding-left: max(2rem, env(safe-area-inset-left));
+    padding-right: max(2rem, env(safe-area-inset-right));
+    padding-bottom: max(2rem, env(safe-area-inset-bottom));
+  }
+}

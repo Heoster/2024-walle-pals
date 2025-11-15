@@ -1,0 +1,239 @@
+/* Instagram Display Styles for 2024 Walle Pals */
+
+/* Instagram Badge on Friend Frames */
+.instagram-badge {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.friend-frame:hover .instagram-badge,
+.instagram-badge.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.instagram-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.instagram-link:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.instagram-icon {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.instagram-handle {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 80px;
+}
+
+/* Instagram Section on Friend Pages */
+.instagram-section {
+  padding: 60px 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+}
+
+.instagram-section h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.instagram-section p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.instagram-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.instagram-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.instagram-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Instagram Toggle Button */
+.instagram-toggle-btn {
+  display: inline-block;
+  margin: 20px 0;
+  padding: 12px 24px;
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.instagram-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Instagram Badge Animations */
+@keyframes instagramPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.instagram-badge.pulse {
+  animation: instagramPulse 2s infinite;
+}
+
+/* Instagram Tooltip */
+.instagram-link::after {
+  content: 'Follow on Instagram';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  margin-bottom: 4px;
+}
+
+.instagram-link:hover::after {
+  opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .instagram-badge {
+    bottom: 4px;
+    right: 4px;
+  }
+  
+  .instagram-link {
+    padding: 3px 6px;
+    font-size: 9px;
+  }
+  
+  .instagram-icon {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .instagram-handle {
+    max-width: 60px;
+  }
+  
+  .instagram-section h3 {
+    font-size: 1.5rem;
+  }
+  
+  .instagram-section p {
+    font-size: 1rem;
+  }
+  
+  .instagram-button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+  
+  .instagram-button svg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .instagram-link::after {
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .instagram-link {
+    background: #000;
+    border: 2px solid #fff;
+  }
+  
+  .instagram-button {
+    background: #000;
+    border: 2px solid #fff;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .instagram-badge,
+  .instagram-link,
+  .instagram-button,
+  .instagram-toggle-btn {
+    transition: none;
+  }
+  
+  .instagram-badge.pulse {
+    animation: none;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .instagram-badge,
+  .instagram-section,
+  .instagram-toggle-btn {
+    display: none;
+  }
+}

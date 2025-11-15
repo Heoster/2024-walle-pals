@@ -27,7 +27,7 @@
                 <li><a href="index.html" class="nav-link">Home</a></li>
                 <li><a href="index.html#wall-of-frames" class="nav-link">Friends</a></li>
                 <li><a href="memories.html" class="nav-link">Memories</a></li>
-                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>`n                <li><a href="memory-upload.html" class="nav-link">Upload Memory</a></li>
                 <li><a href="contact.html" class="nav-link active">Contact</a></li>
             </ul>
             <button class="nav-toggle" aria-label="Toggle navigation">
@@ -60,8 +60,8 @@
                                 <div class="contact-icon">📧</div>
                                 <div class="contact-details">
                                     <h3>Email</h3>
-                                    <p>90freeplay98@gmail.com</p>
-                                    <a href="mailto:90freeplay98@gmail.com" class="contact-link">Send Email</a>
+                                    <p>codeex.care@gmail.com</p>
+                                    <a href="mailto:codeex.care@gmail.com" class="contact-link">Send Email</a>
                                 </div>
                             </div>
 
@@ -210,8 +210,8 @@
             submitBtn.innerHTML = '<span class="btn-text">Sending...</span><span class="btn-icon">⏳</span>';
             submitBtn.disabled = true;
             
-            // Send data to server for email forwarding
-            fetch('/api/contact', {
+            // Send data to Netlify Function for email forwarding
+            fetch('/.netlify/functions/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -225,13 +225,36 @@
                     submitBtn.innerHTML = '<span class="btn-text">Message Sent!</span><span class="btn-icon">✅</span>';
                     submitBtn.style.background = 'linear-gradient(135deg, #48bb78 0%, #38a169 100%)';
                     
+                    // Show additional success info
+                    const successMessage = document.createElement('div');
+                    successMessage.className = 'success-message';
+                    successMessage.style.cssText = `
+                        background: #d4edda;
+                        color: #155724;
+                        padding: 15px;
+                        border-radius: 8px;
+                        margin: 15px 0;
+                        border: 1px solid #c3e6cb;
+                        text-align: center;
+                    `;
+                    successMessage.innerHTML = `
+                        <strong>🎉 Thank you for your message!</strong><br>
+                        📧 Check your email for a confirmation message<br>
+                        ⚡ Heoster will respond within 1-2 working days
+                    `;
+                    
+                    this.appendChild(successMessage);
+                    
                     // Reset form after delay
                     setTimeout(() => {
                         this.reset();
                         submitBtn.innerHTML = originalText;
                         submitBtn.disabled = false;
                         submitBtn.style.background = '';
-                    }, 2000);
+                        if (successMessage.parentNode) {
+                            successMessage.parentNode.removeChild(successMessage);
+                        }
+                    }, 5000);
                 } else {
                     throw new Error(result.message);
                 }
@@ -253,3 +276,4 @@
     </script>
 </body>
 </html>
+

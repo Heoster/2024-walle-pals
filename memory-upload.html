@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Upload and share memories with 2024 Walle Pals">
+    <title>🏠 Upload Memory - 2024 Walle Pals</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/memory-enhancements.css">
+    <link rel="stylesheet" href="css/instagram-display.css">`n    <link rel="stylesheet" href="css/social-features.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        .upload-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .upload-form-section {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+
+        .upload-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .file-upload-area {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .file-upload-area:hover {
+            border-color: #667eea;
+            background: #f0f4ff;
+        }
+
+        .file-upload-area.dragover {
+            border-color: #667eea;
+            background: #e3f2fd;
+        }
+
+        .upload-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+        .participants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .participant-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .participant-checkbox:hover {
+            background: #f0f4ff;
+            border-color: #667eea;
+        }
+
+        .participant-checkbox input[type="checkbox"] {
+            width: auto;
+        }
+
+        .tags-input {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag-suggestion {
+            padding: 6px 12px;
+            background: #e3f2fd;
+            color: #1976d2;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .tag-suggestion:hover {
+            background: #1976d2;
+            color: white;
+        }
+
+        .tag-suggestion.selected {
+            background: #1976d2;
+            color: white;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .preview-section {
+            margin-top: 2rem;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            display: none;
+        }
+
+        .preview-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .preview-image {
+            position: relative;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .preview-image img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        .remove-image {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(255, 0, 0, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <img src="assets/favicon.ico" alt="Walle Pals Logo" class="nav-logo">
+                <h1 class="brand-title">2024 Walle Pals</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#wall-of-frames" class="nav-link">Friends</a></li>
+                <li><a href="memories.html" class="nav-link">Memories</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="memory-upload.html" class="nav-link active">Upload Memory</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="upload-hero">
+            <div class="container">
+                <h1 class="hero-title">📸 Share Your Memory</h1>
+                <p class="hero-subtitle">Help us build the perfect collection of our friendship moments</p>
+            </div>
+        </section>
+
+        <section class="upload-form-section">
+            <div class="container">
+                <form class="upload-form" id="memoryUploadForm">
+                    <h2>✨ Add a New Memory</h2>
+                    <p>Share a special moment with our friend circle!</p>
+
+                    <div class="form-group">
+                        <label for="memoryTitle">Memory Title *</label>
+                        <input type="text" id="memoryTitle" name="title" required
+                            placeholder="e.g., Epic Gaming Night, Birthday Surprise, Study Marathon">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="memoryDate">Date *</label>
+                        <input type="date" id="memoryDate" name="date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="memoryCategory">Category *</label>
+                        <select id="memoryCategory" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="gaming">🎮 Gaming</option>
+                            <option value="study">📚 Study Sessions</option>
+                            <option value="celebration">🎉 Celebrations</option>
+                            <option value="adventure">🏞️ Adventures</option>
+                            <option value="food">🍕 Food Adventures</option>
+                            <option value="funny">😂 Funny Moments</option>
+                            <option value="achievement">🏆 Achievements</option>
+                            <option value="casual">😊 Casual Hangouts</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="memoryLocation">Location</label>
+                        <input type="text" id="memoryLocation" name="location"
+                            placeholder="e.g., School, Harsh's Place, Park, Online">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="memoryDescription">Description *</label>
+                        <textarea id="memoryDescription" name="description" required
+                            placeholder="Tell us about this memory! What happened? Why was it special? What made everyone laugh or smile?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Photos/Videos</label>
+                        <div class="file-upload-area" id="fileUploadArea">
+                            <div class="upload-icon">📷</div>
+                            <p>Drag and drop your photos/videos here, or click to browse</p>
+                            <p style="font-size: 0.9rem; color: #666;">Supported: JPG, PNG, MP4, MOV (Max 10MB each)</p>
+                        </div>
+                        <input type="file" id="fileInput" multiple accept="image/*,video/*" style="display: none;">
+
+                        <div class="preview-section" id="previewSection">
+                            <h4>Preview:</h4>
+                            <div class="preview-images" id="previewImages"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Friends in this Memory</label>
+                        <div class="participants-grid" id="participantsGrid">
+                            
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tags</label>
+                        <p style="font-size: 0.9rem; color: #666; margin-bottom: 1rem;">
+                            Click on suggested tags or add your own
+                        </p>
+                        <div class="tags-input" id="tagsInput">
+                            <button type="button" class="tag-suggestion" data-tag="friendship">friendship</button>
+                            <button type="button" class="tag-suggestion" data-tag="fun">fun</button>
+                            <button type="button" class="tag-suggestion" data-tag="memorable">memorable</button>
+                            <button type="button" class="tag-suggestion" data-tag="laughter">laughter</button>
+                            <button type="button" class="tag-suggestion" data-tag="teamwork">teamwork</button>
+                            <button type="button" class="tag-suggestion" data-tag="victory">victory</button>
+                            <button type="button" class="tag-suggestion" data-tag="surprise">surprise</button>
+                            <button type="button" class="tag-suggestion" data-tag="adventure">adventure</button>
+                        </div>
+                        <input type="text" id="customTag" placeholder="Add custom tag and press Enter"
+                            style="margin-top: 1rem; width: 200px;">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="memoryMood">Mood of this Memory</label>
+                        <select id="memoryMood" name="mood">
+                            <option value="excited">🤩 Excited</option>
+                            <option value="joyful">😊 Joyful</option>
+                            <option value="funny">😂 Funny</option>
+                            <option value="proud">😎 Proud</option>
+                            <option value="nostalgic">💭 Nostalgic</option>
+                            <option value="adventurous">🌟 Adventurous</option>
+                            <option value="peaceful">😌 Peaceful</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="submitterName">Your Name *</label>
+                        <input type="text" id="submitterName" name="submitter" required
+                            placeholder="Who's sharing this memory?">
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        🚀 Share This Memory
+                    </button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Walle Pals. Made with ❤️ for our amazing friend circle.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Memory Upload Functionality
+        class MemoryUploadManager {
+            constructor() {
+                this.selectedFiles = [];
+                this.selectedTags = [];
+                this.friends = [
+                    'Harsh', 'Parduman', 'Kartik', 'Pankaj', 'Lakshay', 'Nawajish',
+                    'Vishesh', 'Sahil', 'Tushar', 'Yougank', 'Masum', 'Shiv',
+                    'Arijit', 'Pintu', 'Ayush', 'Shivaji', 'Sachin', 'Varun',
+                    'Hani', 'Anshul', 'Abhishek', 'Arjun', 'Dheraj', 'Rajat',
+                    'Aditya', 'Rudra', 'Mudashir', 'Ravi', 'Aashish', 'Rijwaan'
+                ];
+                this.init();
+            }
+
+            init() {
+                this.setupFileUpload();
+                this.setupParticipants();
+                this.setupTags();
+                this.setupForm();
+            }
+
+            setupFileUpload() {
+                const uploadArea = document.getElementById('fileUploadArea');
+                const fileInput = document.getElementById('fileInput');
+
+                uploadArea.addEventListener('click', () => fileInput.click());
+                uploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.add('dragover');
+                });
+                uploadArea.addEventListener('dragleave', () => {
+                    uploadArea.classList.remove('dragover');
+                });
+                uploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    uploadArea.classList.remove('dragover');
+                    this.handleFiles(e.dataTransfer.files);
+                });
+
+                fileInput.addEventListener('change', (e) => {
+                    this.handleFiles(e.target.files);
+                });
+            }
+
+            handleFiles(files) {
+                Array.from(files).forEach(file => {
+                    if (file.size > 10 * 1024 * 1024) {
+                        alert(`File ${file.name} is too large. Maximum size is 10MB.`);
+                        return;
+                    }
+
+                    this.selectedFiles.push(file);
+                    this.createPreview(file);
+                });
+
+                document.getElementById('previewSection').style.display = 'block';
+            }
+
+            createPreview(file) {
+                const previewContainer = document.getElementById('previewImages');
+                const previewDiv = document.createElement('div');
+                previewDiv.className = 'preview-image';
+
+                if (file.type.startsWith('image/')) {
+                    const img = document.createElement('img');
+                    img.src = URL.createObjectURL(file);
+                    previewDiv.appendChild(img);
+                } else if (file.type.startsWith('video/')) {
+                    const video = document.createElement('video');
+                    video.src = URL.createObjectURL(file);
+                    video.controls = true;
+                    video.style.width = '100%';
+                    video.style.height = '120px';
+                    previewDiv.appendChild(video);
+                }
+
+                const removeBtn = document.createElement('button');
+                removeBtn.className = 'remove-image';
+                removeBtn.innerHTML = '×';
+                removeBtn.onclick = () => {
+                    const index = this.selectedFiles.indexOf(file);
+                    if (index > -1) {
+                        this.selectedFiles.splice(index, 1);
+                        previewDiv.remove();
+                        if (this.selectedFiles.length === 0) {
+                            document.getElementById('previewSection').style.display = 'none';
+                        }
+                    }
+                };
+
+                previewDiv.appendChild(removeBtn);
+                previewContainer.appendChild(previewDiv);
+            }
+
+            setupParticipants() {
+                const participantsGrid = document.getElementById('participantsGrid');
+                this.friends.forEach(friend => {
+                    const checkbox = document.createElement('div');
+                    checkbox.className = 'participant-checkbox';
+                    checkbox.innerHTML = `
+                        <input type="checkbox" id="friend-${friend}" name="participants" value="${friend}">
+                        <label for="friend-${friend}">${friend}</label>
+                    `;
+                    participantsGrid.appendChild(checkbox);
+                });
+            }
+
+            setupTags() {
+                const tagButtons = document.querySelectorAll('.tag-suggestion');
+                const customTagInput = document.getElementById('customTag');
+
+                tagButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        const tag = btn.dataset.tag;
+                        if (this.selectedTags.includes(tag)) {
+                            this.selectedTags = this.selectedTags.filter(t => t !== tag);
+                            btn.classList.remove('selected');
+                        } else {
+                            this.selectedTags.push(tag);
+                            btn.classList.add('selected');
+                        }
+                    });
+                });
+
+                customTagInput.addEventListener('keypress', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        const tag = e.target.value.trim().toLowerCase();
+                        if (tag && !this.selectedTags.includes(tag)) {
+                            this.selectedTags.push(tag);
+                            this.createCustomTag(tag);
+                            e.target.value = '';
+                        }
+                    }
+                });
+            }
+
+            createCustomTag(tag) {
+                const tagsInput = document.getElementById('tagsInput');
+                const tagBtn = document.createElement('button');
+                tagBtn.type = 'button';
+                tagBtn.className = 'tag-suggestion selected';
+                tagBtn.textContent = tag;
+                tagBtn.onclick = () => {
+                    this.selectedTags = this.selectedTags.filter(t => t !== tag);
+                    tagBtn.remove();
+                };
+                tagsInput.appendChild(tagBtn);
+            }
+
+            setupForm() {
+                const form = document.getElementById('memoryUploadForm');
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.submitMemory();
+                });
+            }
+
+            submitMemory() {
+                const formData = new FormData();
+                const form = document.getElementById('memoryUploadForm');
+
+                // Get form data
+                const title = form.title.value;
+                const date = form.date.value;
+                const category = form.category.value;
+                const location = form.location.value;
+                const description = form.description.value;
+                const mood = form.mood.value;
+                const submitter = form.submitter.value;
+
+                // Get selected participants
+                const participants = Array.from(form.querySelectorAll('input[name="participants"]:checked'))
+                    .map(cb => cb.value);
+
+                // Create memory object
+                const memory = {
+                    title,
+                    date,
+                    category,
+                    location,
+                    description,
+                    mood,
+                    submitter,
+                    participants,
+                    tags: this.selectedTags,
+                    timestamp: new Date().toISOString()
+                };
+
+                // For now, just show success message (in real app, would send to server)
+                this.showSuccessMessage(memory);
+            }
+
+            showSuccessMessage(memory) {
+                const successDiv = document.createElement('div');
+                successDiv.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: white;
+                    padding: 2rem;
+                    border-radius: 20px;
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+                    text-align: center;
+                    z-index: 1000;
+                    max-width: 400px;
+                `;
+
+                successDiv.innerHTML = `
+                    <h3 style="color: #4caf50; margin-bottom: 1rem;">🎉 Memory Shared!</h3>
+                    <p>Thank you for sharing "${memory.title}"!</p>
+                    <p style="font-size: 0.9rem; color: #666; margin: 1rem 0;">
+                        Your memory has been submitted and will be added to our collection.
+                    </p>
+                    <button onclick="this.parentElement.remove(); window.location.href='memories.html';" 
+                            style="padding: 10px 20px; background: #4caf50; color: white; border: none; border-radius: 10px; cursor: pointer;">
+                        View Memories
+                    </button>
+                `;
+
+                // Add overlay
+                const overlay = document.createElement('div');
+                overlay.style.cssText = `
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    background: rgba(0, 0, 0, 0.5);
+                    z-index: 999;
+                `;
+                overlay.onclick = () => {
+                    overlay.remove();
+                    successDiv.remove();
+                };
+
+                document.body.appendChild(overlay);
+                document.body.appendChild(successDiv);
+
+                // Reset form
+                document.getElementById('memoryUploadForm').reset();
+                this.selectedFiles = [];
+                this.selectedTags = [];
+                document.getElementById('previewSection').style.display = 'none';
+                document.getElementById('previewImages').innerHTML = '';
+                document.querySelectorAll('.tag-suggestion.selected').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+            }
+        }
+
+        // Initialize upload manager
+        document.addEventListener('DOMContentLoaded', () => {
+            new MemoryUploadManager();
+        });
+    </script>
+</body>
+
+</html>
+

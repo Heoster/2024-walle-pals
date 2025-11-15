@@ -14,8 +14,7 @@ class NetworkMonitor {
       this.createStatusElement();
       this.setupEventListeners();
       this.monitorConnection();
-      console.log('Network monitor initialized');
-    } catch (error) {
+      } catch (error) {
       console.error('Failed to initialize network monitor:', error);
     }
   }
@@ -111,8 +110,6 @@ class NetworkMonitor {
   async processRetryQueue() {
     if (this.retryQueue.length === 0) return;
     
-    console.log(`Processing ${this.retryQueue.length} queued requests`);
-    
     const queue = [...this.retryQueue];
     this.retryQueue = [];
     
@@ -120,8 +117,7 @@ class NetworkMonitor {
       if (item.attempts < this.maxRetries) {
         try {
           await fetch(item.url);
-          console.log(`Successfully retried: ${item.url}`);
-        } catch (error) {
+          } catch (error) {
           item.attempts++;
           if (item.attempts < this.maxRetries) {
             this.retryQueue.push(item);
@@ -147,8 +143,7 @@ class NetworkMonitor {
           this.showSlowConnectionWarning();
         }
         
-        console.log(`Connection: ${effectiveType}, Downlink: ${downlink} Mbps`);
-      };
+        };
       
       connection.addEventListener('change', updateConnectionInfo);
       updateConnectionInfo();

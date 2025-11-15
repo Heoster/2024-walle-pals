@@ -5,7 +5,7 @@ class ImageFallbackManager {
       'harsh.jpg': ['../assets/school/harsh.jpg', '../assets/school/gallery1.jpg', '../assets/memories/harsh.jpg'],
       'kartik.jpg': ['../assets/school/kartik.jpg', '../assets/school/gallery3.jpg'],
       'pankaj.jpg': ['../assets/school/pankaj.jpg', '../assets/school/gallery4.jpg'],
-      'pasandu.jpg': ['../assets/school/pasandu (1).jpg', '../assets/school/pasandu (2).jpg', '../assets/school/gallery6.jpg'],
+      'nawajish.jpg': ['../assets/school/nawajish (1).jpg', '../assets/school/nawajish (2).jpg', '../assets/school/gallery6.jpg'],
       'vishesh.jpg': ['../assets/school/vishesh.jpg', '../assets/school/gallery7.jpg'],
       'sahil.jpg': ['../assets/school/sahil.jpg', '../assets/school/gallery8.jpg'],
       'mudashir.jpg': ['../assets/school/mudahsir.jpg', '../assets/school/gallery27.jpg']
@@ -22,8 +22,7 @@ class ImageFallbackManager {
       this.setupImageObserver();
       this.setupGlobalErrorHandler();
       this.preloadCriticalImages();
-      console.log('Image fallback manager initialized');
-    } catch (error) {
+      } catch (error) {
       console.error('Failed to initialize image fallback manager:', error);
     }
   }
@@ -77,7 +76,6 @@ class ImageFallbackManager {
       const nextIndex = currentIndex + 1;
       
       if (nextIndex < fallbacks.length) {
-        console.log(`Trying fallback ${nextIndex + 1} for ${imgName}`);
         img.src = fallbacks[nextIndex];
       } else {
         // All fallbacks failed, show placeholder

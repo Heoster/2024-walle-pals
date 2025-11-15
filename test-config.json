@@ -1,0 +1,98 @@
+{
+  "project": {
+    "name": "2024 Walle Pals",
+    "version": "1.0.0",
+    "type": "web-app",
+    "testFramework": "jest",
+    "frontendFramework": "vanilla-js",
+    "backend": "express",
+    "testDirectory": "./tests",
+    "sourceDirectory": "./js",
+    "apiEndpoints": [
+      {
+        "method": "GET",
+        "path": "/api/health",
+        "description": "Server health check"
+      },
+      {
+        "method": "GET",
+        "path": "/api/friends",
+        "description": "Get all friends"
+      },
+      {
+        "method": "GET",
+        "path": "/api/friends/:id",
+        "description": "Get friend by ID"
+      },
+      {
+        "method": "POST",
+        "path": "/api/contact",
+        "description": "Submit contact form"
+      },
+      {
+        "method": "POST",
+        "path": "/api/memories",
+        "description": "Upload memory"
+      },
+      {
+        "method": "GET",
+        "path": "/",
+        "description": "Serve homepage"
+      }
+    ],
+    "features": [
+      "Wall of Frames (30 friends)",
+      "Memory Collection",
+      "Instagram Integration",
+      "Social Features (like, share)",
+      "Mobile Optimized",
+      "View Tracking"
+    ]
+  },
+  "testRecommendations": [
+    {
+      "category": "API Endpoints",
+      "tests": [
+        "Health check returns valid status",
+        "Friends list returns array with correct structure",
+        "Individual friend lookup by ID",
+        "Invalid friend ID returns 404",
+        "Contact form submission validation",
+        "Memory upload file handling"
+      ]
+    },
+    {
+      "category": "Frontend Features",
+      "tests": [
+        "Wall of frames renders 30 friends",
+        "Friend gallery animations trigger on hover",
+        "Instagram buttons navigate correctly",
+        "Memory upload form validation",
+        "Responsive layout on mobile",
+        "Like/share buttons update stats"
+      ]
+    },
+    {
+      "category": "Performance",
+      "tests": [
+        "Page load time < 2 seconds",
+        "API response time < 200ms",
+        "Image optimization verified",
+        "CSS animations smooth (60fps)",
+        "No memory leaks on long sessions"
+      ]
+    },
+    {
+      "category": "Security",
+      "tests": [
+        "CORS headers properly configured",
+        "XSS protection enabled",
+        "CSRF tokens on forms",
+        "Rate limiting on API endpoints",
+        "Input validation on all forms"
+      ]
+    }
+  ],
+  "timestamp": "2025-11-11T05:21:46.501Z",
+  "testCommand": "npx jest tests/server.test.js --coverage --forceExit"
+}
