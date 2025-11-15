@@ -1,4 +1,10 @@
 {
+  "name": "walle-pals-social-functions",
+  "version": "1.0.0",
+  "description": "Social features functions for 2024 Walle Pals",
+  "scripts": {
+    "build": "echo 'No build step required for static site'"
+  },
   "dependencies": {
     "compression": "^1.8.1",
     "cors": "^2.8.5",
@@ -7,9 +13,6 @@
     "express": "^5.1.0",
     "helmet": "^8.1.0"
   },
-  "version": "1.0.0",
-  "name": "walle-pals-social-functions",
-  "description": "Social features functions for 2024 Walle Pals",
   "devDependencies": {
     "jest": "^30.2.0",
     "supertest": "^7.1.4"
