@@ -56,6 +56,7 @@ Object.keys(friends).forEach(slug => {
   <link rel="stylesheet" href="../css/hero-enhanced.css">
   <link rel="stylesheet" href="../css/navbar-premium.css">
   <link rel="stylesheet" href="../css/friend-page-premium.css">
+  <link rel="stylesheet" href="../css/friendship-quotes.css">
   <link rel="stylesheet" href="../css/responsive-enhanced.css">
   
   <!-- Fonts -->
@@ -158,6 +159,48 @@ Object.keys(friends).forEach(slug => {
     </div>
   </section>
 
+  <!-- Friendship Quotes Section -->
+  <section class="friendship-quotes-section">
+    <div class="container">
+      <div class="quotes-header">
+        <h2>✨ Friendship Wisdom</h2>
+        <p>Celebrating the bonds that make life beautiful</p>
+      </div>
+      
+      <div class="quotes-carousel">
+        <!-- Quotes will be loaded here by JavaScript -->
+      </div>
+
+      <div class="quotes-navigation">
+        <button class="quote-nav-btn quote-prev" aria-label="Previous quote">‹</button>
+        <div class="quote-dots">
+          <span class="quote-dot active"></span>
+          <span class="quote-dot"></span>
+          <span class="quote-dot"></span>
+          <span class="quote-dot"></span>
+          <span class="quote-dot"></span>
+          <span class="quote-dot"></span>
+          <span class="quote-dot"></span>
+          <span class="quote-dot"></span>
+          <span class="quote-dot"></span>
+          <span class="quote-dot"></span>
+          <span class="quote-dot"></span>
+          <span class="quote-dot"></span>
+        </div>
+        <button class="quote-nav-btn quote-next" aria-label="Next quote">›</button>
+      </div>
+
+      <div style="text-align: center;">
+        <button class="random-quote-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+          </svg>
+          Random Quote
+        </button>
+      </div>
+    </div>
+  </section>
+
   <!-- Comments Section -->
   <section class="comments-section-premium">
     <div class="container">
@@ -201,6 +244,7 @@ Object.keys(friends).forEach(slug => {
   <!-- Scripts -->
   <script src="../js/hero-enhanced.js"></script>
   <script src="../js/navbar-premium.js"></script>
+  <script src="../js/friendship-quotes.js"></script>
   <script src="../js/friend-page.js"></script>
 </body>
 </html>`;

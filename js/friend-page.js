@@ -26,49 +26,119 @@ class FriendPage {
     const galleryGrid = document.getElementById('gallery-grid');
     if (!galleryGrid) return;
 
-    // Image counts per friend
-    const imageCounts = {
-      nawajish: 9, // Nawajish has most images
-      harsh: 1,
-      kartik: 1,
-      lakshay: 1,
-      mudashir: 1,
-      pankaj: 1,
-      sahil: 1,
-      vishesh: 1,
-      arjun: 1
+    // Available memory images (1-33)
+    const memoryImages = Array.from({length: 33}, (_, i) => `../assets/memories/memories${i + 1}.jpg`);
+    
+    // Available videos
+    const videos = [
+      '../assets/video/20250121_131759.mp4',
+      '../assets/video/20250121_132212.mp4',
+      '../assets/video/20250121_132312.mp4',
+      '../assets/video/20250121_132346.mp4',
+      '../assets/video/20250121_132714.mp4',
+      '../assets/video/20250121_132802.mp4',
+      '../assets/video/WhatsApp Video 2025-08-15 at 23.07.34_0d6965b2.mp4',
+      '../assets/video/WhatsApp Video 2025-08-15 at 23.07.41_b2d920c1.mp4'
+    ];
+
+    // Special image counts for friends with dedicated folders
+    const specialFriends = {
+      nawajish: {
+        type: 'folder',
+        count: 9,
+        path: '../assets/nawajish/nawajish'
+      }
     };
 
-    const count = imageCounts[this.friendSlug] || 0;
-    
-    if (count === 0) {
-      galleryGrid.innerHTML = `
-        <div style="grid-column: 1/-1; text-align: center; padding: 3rem; color: rgba(255,255,255,0.5);">
-          <p style="font-size: 1.2rem;">📸 More photos coming soon!</p>
-        </div>
-      `;
-      return;
+    let mediaItems = [];
+
+    // Check if friend has special folder
+    if (specialFriends[this.friendSlug]) {
+      const special = specialFriends[this.friendSlug];
+      for (let i = 1; i <= special.count; i++) {
+        mediaItems.push({
+          type: 'image',
+          src: `${special.path}${i}.jpg`,
+          caption: `Memory #${i}`
+        });
+      }
+    } else {
+      // Add friend's profile image
+      mediaItems.push({
+        type: 'image',
+        src: `../assets/friends/${this.friendSlug}.jpg`,
+        caption: 'Profile Photo'
+      });
     }
 
-    // Load images
-    for (let i = 1; i <= count; i++) {
-      const item = document.createElement('div');
-      item.className = 'gallery-item';
-      item.style.animationDelay = `${i * 0.1}s`;
-      
-      const imgPath = this.friendSlug === 'nawajish' 
-        ? `../assets/nawajish/nawajish${i}.jpg`
-        : `../assets/friends/${this.friendSlug}.jpg`;
-      
-      item.innerHTML = `
-        <img src="${imgPath}" alt="Memory ${i}" loading="lazy" onerror="this.parentElement.style.display='none'">
-        <div class="gallery-overlay">
-          <div class="gallery-caption">Memory #${i}</div>
-        </div>
-      `;
-      
-      galleryGrid.appendChild(item);
+    // Add 5-8 random memory images for all friends
+    const randomImageCount = Math.floor(Math.random() * 4) + 5; // 5-8 images
+    const shuffledImages = this.shuffleArray([...memoryImages]);
+    
+    for (let i = 0; i < randomImageCount && i < shuffledImages.length; i++) {
+      mediaItems.push({
+        type: 'image',
+        src: shuffledImages[i],
+        caption: `Shared Memory #${i + 1}`
+      });
     }
+
+    // Add 1-2 random videos
+    const videoCount = Math.floor(Math.random() * 2) + 1; // 1-2 videos
+    const shuffledVideos = this.shuffleArray([...videos]);
+    
+    for (let i = 0; i < videoCount && i < shuffledVideos.length; i++) {
+      mediaItems.push({
+        type: 'video',
+        src: shuffledVideos[i],
+        caption: `Video Memory #${i + 1}`
+      });
+    }
+
+    // Shuffle all media items
+    mediaItems = this.shuffleArray(mediaItems);
+
+    // Render media items
+    mediaItems.forEach((item, index) => {
+      const mediaElement = document.createElement('div');
+      mediaElement.className = 'gallery-item';
+      mediaElement.style.animationDelay = `${index * 0.1}s`;
+      
+      if (item.type === 'image') {
+        mediaElement.innerHTML = `
+          <img src="${item.src}" alt="${item.caption}" loading="lazy" onerror="this.parentElement.style.display='none'">
+          <div class="gallery-overlay">
+            <div class="gallery-caption">${item.caption}</div>
+          </div>
+        `;
+      } else if (item.type === 'video') {
+        mediaElement.innerHTML = `
+          <video controls preload="metadata" onerror="this.parentElement.style.display='none'">
+            <source src="${item.src}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="gallery-overlay">
+            <div class="gallery-caption">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="white" style="margin-bottom: 0.5rem;">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <br>${item.caption}
+            </div>
+          </div>
+        `;
+      }
+      
+      galleryGrid.appendChild(mediaElement);
+    });
+  }
+
+  shuffleArray(array) {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
   }
 
   setupCommentForm() {
