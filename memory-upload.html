@@ -525,8 +525,8 @@
             }
 
             submitMemory() {
-                const formData = new FormData();
                 const form = document.getElementById('memoryUploadForm');
+                const formData = new FormData();
 
                 // Get form data
                 const title = form.title.value;
@@ -541,22 +541,61 @@
                 const participants = Array.from(form.querySelectorAll('input[name="participants"]:checked'))
                     .map(cb => cb.value);
 
-                // Create memory object
-                const memory = {
-                    title,
-                    date,
-                    category,
-                    location,
-                    description,
-                    mood,
-                    submitter,
-                    participants,
-                    tags: this.selectedTags,
-                    timestamp: new Date().toISOString()
-                };
+                // Add form fields to FormData
+                formData.append('title', title);
+                formData.append('date', date);
+                formData.append('category', category);
+                formData.append('location', location);
+                formData.append('description', description);
+                formData.append('mood', mood);
+                formData.append('submitter', submitter);
+                formData.append('participants', JSON.stringify(participants));
+                formData.append('tags', JSON.stringify(this.selectedTags));
 
-                // For now, just show success message (in real app, would send to server)
-                this.showSuccessMessage(memory);
+                // Add files to FormData
+                this.selectedFiles.forEach((file, index) => {
+                    formData.append(`file_${index}`, file);
+                });
+
+                // Show loading state
+                const submitBtn = form.querySelector('.submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '⏳ Uploading...';
+                submitBtn.disabled = true;
+
+                // Send to Netlify function
+                fetch('/.netlify/functions/upload-memory', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.success) {
+                        const memory = {
+                            title,
+                            date,
+                            category,
+                            location,
+                            description,
+                            mood,
+                            submitter,
+                            participants,
+                            tags: this.selectedTags,
+                            timestamp: new Date().toISOString()
+                        };
+                        this.showSuccessMessage(memory);
+                    } else {
+                        alert('Error uploading memory: ' + (result.error || 'Unknown error'));
+                        submitBtn.innerHTML = originalText;
+                        submitBtn.disabled = false;
+                    }
+                })
+                .catch(error => {
+                    console.error('Upload error:', error);
+                    alert('Error uploading memory: ' + error.message);
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
             }
 
             showSuccessMessage(memory) {
