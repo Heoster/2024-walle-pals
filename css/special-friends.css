@@ -1,0 +1,254 @@
+/* Special Friends Pages - Enhanced Styling */
+
+/* Harsh - The Adventurous Spirit */
+.friend-page[data-friend="harsh"] {
+  --primary-color: #ff6b6b;
+  --secondary-color: #ffa94d;
+}
+
+.friend-page[data-friend="harsh"] .friend-hero-premium {
+  background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(255, 165, 77, 0.1) 100%);
+}
+
+.friend-page[data-friend="harsh"] .profile-card-3d {
+  border: 2px solid #ff6b6b;
+  box-shadow: 0 0 30px rgba(255, 107, 107, 0.3);
+}
+
+.friend-page[data-friend="harsh"] .profile-emoji {
+  animation: bounce 2s infinite;
+}
+
+/* Pankaj - Master of Good Vibes */
+.friend-page[data-friend="pankaj"] {
+  --primary-color: #4ecdc4;
+  --secondary-color: #44a08d;
+}
+
+.friend-page[data-friend="pankaj"] .friend-hero-premium {
+  background: linear-gradient(135deg, rgba(78, 205, 196, 0.1) 0%, rgba(68, 160, 141, 0.1) 100%);
+}
+
+.friend-page[data-friend="pankaj"] .profile-card-3d {
+  border: 2px solid #4ecdc4;
+  box-shadow: 0 0 30px rgba(78, 205, 196, 0.3);
+}
+
+.friend-page[data-friend="pankaj"] .profile-emoji {
+  animation: spin 3s linear infinite;
+}
+
+/* Kartik - The Creative Genius */
+.friend-page[data-friend="kartik"] {
+  --primary-color: #a8edea;
+  --secondary-color: #fed6e3;
+}
+
+.friend-page[data-friend="kartik"] .friend-hero-premium {
+  background: linear-gradient(135deg, rgba(168, 237, 234, 0.1) 0%, rgba(254, 214, 227, 0.1) 100%);
+}
+
+.friend-page[data-friend="kartik"] .profile-card-3d {
+  border: 2px solid #a8edea;
+  box-shadow: 0 0 30px rgba(168, 237, 234, 0.3);
+}
+
+.friend-page[data-friend="kartik"] .profile-emoji {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Parduman - Always Ready to Help */
+.friend-page[data-friend="parduman"] {
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+}
+
+.friend-page[data-friend="parduman"] .friend-hero-premium {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+}
+
+.friend-page[data-friend="parduman"] .profile-card-3d {
+  border: 2px solid #667eea;
+  box-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+}
+
+.friend-page[data-friend="parduman"] .profile-emoji {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Lakshay - The Loyal Companion */
+.friend-page[data-friend="lakshay"] {
+  --primary-color: #f093fb;
+  --secondary-color: #f5576c;
+}
+
+.friend-page[data-friend="lakshay"] .friend-hero-premium {
+  background: linear-gradient(135deg, rgba(240, 147, 251, 0.1) 0%, rgba(245, 87, 108, 0.1) 100%);
+}
+
+.friend-page[data-friend="lakshay"] .profile-card-3d {
+  border: 2px solid #f093fb;
+  box-shadow: 0 0 30px rgba(240, 147, 251, 0.3);
+}
+
+.friend-page[data-friend="lakshay"] .profile-emoji {
+  animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Special Gallery Enhancement */
+.special-friend-gallery {
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-radius: 20px;
+  margin-bottom: 2rem;
+}
+
+.special-friend-gallery::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  border-radius: 20px;
+  pointer-events: none;
+}
+
+.gallery-grid {
+  position: relative;
+  z-index: 1;
+}
+
+/* Special Badge */
+.special-friend-badge {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  animation: slideIn 0.6s ease;
+}
+
+/* Enhanced Animations */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes heartbeat {
+  0%, 100% {
+    transform: scale(1);
+  }
+  25% {
+    transform: scale(1.1);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Special Friend Quote Section */
+.special-friend-quote {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  border-left: 4px solid #667eea;
+  padding: 2rem;
+  border-radius: 10px;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #e0e0e0;
+}
+
+/* Special Friend Stats */
+.special-friend-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stat-item {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 15px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.stat-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+.stat-number {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .special-friend-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .special-friend-quote {
+    padding: 1.5rem;
+    font-size: 1rem;
+  }
+}

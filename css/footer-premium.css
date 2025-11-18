@@ -24,6 +24,47 @@
 .footer-content {
   background: #1a1a2e;
   padding: 4rem 2rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-main {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-main p {
+  margin: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-credit {
+  font-size: 0.95rem;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+}
+
+.footer-link:hover {
+  color: #667eea;
+  background: rgba(102, 126, 234, 0.1);
 }
 
 .footer-grid {

@@ -57,6 +57,7 @@ Object.keys(friends).forEach(slug => {
   <link rel="stylesheet" href="../css/navbar-premium.css">
   <link rel="stylesheet" href="../css/friend-page-premium.css">
   <link rel="stylesheet" href="../css/friendship-quotes.css">
+  <link rel="stylesheet" href="../css/special-friends.css">
   <link rel="stylesheet" href="../css/responsive-enhanced.css">
   
   <!-- Fonts -->
@@ -245,6 +246,7 @@ Object.keys(friends).forEach(slug => {
   <script src="../js/hero-enhanced.js"></script>
   <script src="../js/navbar-premium.js"></script>
   <script src="../js/friendship-quotes.js"></script>
+  <script src="../js/special-friends.js"></script>
   <script src="../js/friend-page.js"></script>
 </body>
 </html>`;
