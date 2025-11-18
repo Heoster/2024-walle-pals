@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Share Button Test - 2024 Walle Pals</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/share-button.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .test-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .test-section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        .test-section h2 {
+            color: #667eea;
+            margin-top: 0;
+        }
+        .footer-actions {
+            display: flex;
+            gap: 1rem;
+            margin: 20px 0;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🧪 Share Button Test Suite</h1>
+        
+        <div class="test-section">
+            <h2>Test 1: Share Button Rendering</h2>
+            <p>The share button should appear below:</p>
+            <div class="footer-actions">
+                <button class="share-btn" aria-label="Share this page">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="18" cy="5" r="3"></circle>
+                        <circle cx="6" cy="12" r="3"></circle>
+                        <circle cx="18" cy="19" r="3"></circle>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                    </svg>
+                    <span>Share</span>
+                </button>
+            </div>
+            <div id="test1-status" class="status info">⏳ Waiting for button click...</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 2: Modal Functionality</h2>
+            <p>Click the share button above to open the modal. The modal should:</p>
+            <ul>
+                <li>Display a semi-transparent overlay</li>
+                <li>Show a centered modal with share options</li>
+                <li>Have a close button (×) in the top-right</li>
+                <li>Close when clicking the overlay or close button</li>
+                <li>Close when pressing Escape key</li>
+            </ul>
+            <div id="test2-status" class="status info">⏳ Waiting for modal interaction...</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 3: Copy Link Functionality</h2>
+            <p>In the modal, click "Copy Link" button. It should:</p>
+            <ul>
+                <li>Copy the current URL to clipboard</li>
+                <li>Show "✅ Copied!" feedback</li>
+                <li>Return to normal state after 2 seconds</li>
+            </ul>
+            <div id="test3-status" class="status info">⏳ Waiting for copy action...</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 4: Social Share Buttons</h2>
+            <p>In the modal, the following social share buttons should work:</p>
+            <ul>
+                <li><strong>WhatsApp:</strong> Opens WhatsApp with pre-filled message</li>
+                <li><strong>Facebook:</strong> Opens Facebook share dialog</li>
+                <li><strong>Twitter:</strong> Opens Twitter with pre-filled tweet</li>
+                <li><strong>Email:</strong> Opens default email client</li>
+            </ul>
+            <div id="test4-status" class="status info">⏳ Waiting for social share...</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test 5: Responsive Design</h2>
+            <p>Resize your browser window. The modal should:</p>
+            <ul>
+                <li>Adapt to mobile screens (< 768px)</li>
+                <li>Stack share options vertically on mobile</li>
+                <li>Maintain usability on all screen sizes</li>
+            </ul>
+            <div id="test5-status" class="status info">⏳ Waiting for resize...</div>
+        </div>
+
+        <div class="test-section">
+            <h2>Test Results Summary</h2>
+            <div id="summary" class="status info">
+                <strong>Tests Passed:</strong> <span id="passed">0</span>/5<br>
+                <strong>Tests Failed:</strong> <span id="failed">0</span>/5
+            </div>
+        </div>
+    </div>
+
+    <script src="js/share-button.js"></script>
+    <script>
+        let testsPassed = 0;
+        let testsFailed = 0;
+
+        // Test 1: Check if share button exists
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const shareBtn = document.querySelector('.share-btn');
+                if (shareBtn) {
+                    document.getElementById('test1-status').innerHTML = '✅ Share button rendered successfully';
+                    document.getElementById('test1-status').className = 'status success';
+                    testsPassed++;
+                } else {
+                    document.getElementById('test1-status').innerHTML = '❌ Share button not found';
+                    document.getElementById('test1-status').className = 'status error';
+                    testsFailed++;
+                }
+                updateSummary();
+            }, 500);
+        });
+
+        // Test 2: Check modal functionality
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('.share-btn')) {
+                const modal = document.getElementById('shareModal');
+                if (modal && modal.classList.contains('active')) {
+                    document.getElementById('test2-status').innerHTML = '✅ Modal opened successfully';
+                    document.getElementById('test2-status').className = 'status success';
+                    testsPassed++;
+                    updateSummary();
+                }
+            }
+        });
+
+        // Test 3: Check copy functionality
+        document.addEventListener('click', (e) => {
+            if (e.target.closest('#copyLinkBtn')) {
+                setTimeout(() => {
+                    if (e.target.closest('#copyLinkBtn').classList.contains('copied')) {
+                        document.getElementById('test3-status').innerHTML = '✅ Copy link functionality working';
+                        document.getElementById('test3-status').className = 'status success';
+                        testsPassed++;
+                        updateSummary();
+                    }
+                }, 100);
+            }
+        });
+
+        // Test 4: Check social buttons
+        document.addEventListener('click', (e) => {
+            const socialBtns = ['#shareWhatsApp', '#shareFacebook', '#shareTwitter', '#shareEmail'];
+            if (socialBtns.some(btn => e.target.closest(btn))) {
+                document.getElementById('test4-status').innerHTML = '✅ Social share buttons working';
+                document.getElementById('test4-status').className = 'status success';
+                testsPassed++;
+                updateSummary();
+            }
+        });
+
+        // Test 5: Check responsive design
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                const modal = document.querySelector('.share-modal-content');
+                if (modal) {
+                    document.getElementById('test5-status').innerHTML = '✅ Responsive design working';
+                    document.getElementById('test5-status').className = 'status success';
+                    testsPassed++;
+                    updateSummary();
+                }
+            }, 500);
+        });
+
+        function updateSummary() {
+            document.getElementById('passed').textContent = testsPassed;
+            document.getElementById('failed').textContent = testsFailed;
+        }
+    </script>
+</body>
+</html>

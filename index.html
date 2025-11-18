@@ -3,8 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="2024 walle pals - A modern interactive website connecting friends through a beautiful wall of frames">
-    <title>🏠 2024 Walle Pals - Friends Forever</title>
+    <meta name="description" content="2024 Walle Pals - A modern interactive website celebrating friendship through a beautiful wall of frames, memories, and shared moments with 26+ friends.">
+    <meta name="keywords" content="friendship, friends, memories, social network, friend circle, 2024, walle pals, interactive website">
+    <meta name="author" content="2024 Walle Pals">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://2024wallepals.netlify.app/">
+    <meta property="og:title" content="2024 Walle Pals - Friends Forever">
+    <meta property="og:description" content="A modern interactive website celebrating friendship through a beautiful wall of frames, memories, and shared moments.">
+    <meta property="og:image" content="https://2024wallepals.netlify.app/assets/favicon.ico">
+    <meta property="og:site_name" content="2024 Walle Pals">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://2024wallepals.netlify.app/">
+    <meta property="twitter:title" content="2024 Walle Pals - Friends Forever">
+    <meta property="twitter:description" content="A modern interactive website celebrating friendship through a beautiful wall of frames, memories, and shared moments.">
+    <meta property="twitter:image" content="https://2024wallepals.netlify.app/assets/favicon.ico">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://2024wallepals.netlify.app/">
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <title>🏠 2024 Walle Pals - Friends Forever | Interactive Friendship Website</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="apple-touch-icon" href="assets/favicon.ico">
@@ -29,6 +57,8 @@
     <link rel="stylesheet" href="css/instagram-display.css">
     <link rel="stylesheet" href="css/memory-enhancements.css">
     <link rel="stylesheet" href="css/social-features.css">
+    <link rel="stylesheet" href="css/homepage-redesign.css">
+    <link rel="stylesheet" href="css/memory-backgrounds.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
@@ -78,6 +108,19 @@
                 <div class="hero-badge animate-fade-in-down">✨ 2024 Edition</div>
                 <h1 class="hero-title">Welcome to Our Circle</h1>
                 <p class="hero-subtitle">Where friendships come alive through memories and connections</p>
+                
+                <!-- Interactive Friend Circle -->
+                <div class="friend-circle-container">
+                    <div class="friend-circle" id="friendCircle">
+                        <div class="circle-item" style="--index: 0;"><img src="assets/favicon.ico" alt="Friend" class="circle-avatar"></div>
+                        <div class="circle-item" style="--index: 1;"><img src="assets/favicon.ico" alt="Friend" class="circle-avatar"></div>
+                        <div class="circle-item" style="--index: 2;"><img src="assets/favicon.ico" alt="Friend" class="circle-avatar"></div>
+                        <div class="circle-item" style="--index: 3;"><img src="assets/favicon.ico" alt="Friend" class="circle-avatar"></div>
+                        <div class="circle-item" style="--index: 4;"><img src="assets/favicon.ico" alt="Friend" class="circle-avatar"></div>
+                        <div class="circle-center">❤️</div>
+                    </div>
+                </div>
+                
                 <div class="hero-cta">
                     <a href="#wall-of-frames" class="cta-button primary">Meet Our Friends</a>
                     <a href="memories.html" class="cta-button secondary">View Memories</a>
@@ -100,6 +143,48 @@
             <div class="scroll-indicator">
                 <span>Scroll to explore</span>
                 <div class="scroll-arrow"></div>
+            </div>
+        </section>
+
+        <!-- Friendship Timeline Section -->
+        <section class="friendship-timeline-section">
+            <div class="container">
+                <h2 class="section-title reveal">Our Friendship Journey</h2>
+                <p class="section-subtitle reveal">Milestones that shaped our bond</p>
+                <div class="timeline">
+                    <div class="timeline-item reveal-left stagger-1">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>The Beginning</h3>
+                            <p class="timeline-date">2020</p>
+                            <p>When we first met and discovered our shared passion for friendship and memories</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-right stagger-2">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Growing Together</h3>
+                            <p class="timeline-date">2021</p>
+                            <p>Through challenges and celebrations, our circle grew stronger every day</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-left stagger-3">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Creating Memories</h3>
+                            <p class="timeline-date">2022</p>
+                            <p>Countless adventures and moments that we'll treasure forever</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item reveal-right stagger-4">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Forever Friends</h3>
+                            <p class="timeline-date">2024</p>
+                            <p>Celebrating our unbreakable bond and the journey we've shared</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -132,21 +217,102 @@
             </div>
         </section>
 
+        <!-- Friend Connection Map -->
+        <section class="connection-map-section">
+            <div class="container">
+                <h2 class="section-title reveal">Friend Connection Network</h2>
+                <p class="section-subtitle reveal">See how we're all connected</p>
+                <div class="connection-canvas" id="connectionCanvas"></div>
+            </div>
+        </section>
+
         <section class="card-3d-section">
             <div class="container">
                 <h2 class="section-title reveal">Memories in Motion</h2>
                 <p class="section-subtitle reveal">Our cherished moments spinning through time</p>
-                <div class="card-3d">
-                    <div style="background-image: url('assets/memories/memories1.jpg');"></div>
-                    <div style="background-image: url('assets/memories/memories2.jpg');"></div>
-                    <div style="background-image: url('assets/memories/memories3.jpg');"></div>
-                    <div style="background-image: url('assets/memories/memories4.jpg');"></div>
-                    <div style="background-image: url('assets/memories/memories5.jpg');"></div>
-                    <div style="background-image: url('assets/memories/memories6.jpg');"></div>
-                    <div style="background-image: url('assets/memories/memories7.jpg');"></div>
-                    <div style="background-image: url('assets/memories/memories8.jpg');"></div>
-                    <div style="background-image: url('assets/memories/memories9.jpg');"></div>
-                    <div style="background-image: url('assets/memories/memories10.jpg');"></div>
+                <div class="memory-carousel-enhanced">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-item" data-memory="1">
+                            <img src="assets/memories/memories1.jpg" alt="Memory 1" loading="lazy">
+                            <div class="carousel-info">
+                                <h4>Adventure Time</h4>
+                                <p>2024</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-memory="2">
+                            <img src="assets/memories/memories2.jpg" alt="Memory 2" loading="lazy">
+                            <div class="carousel-info">
+                                <h4>Celebration</h4>
+                                <p>2024</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-memory="3">
+                            <img src="assets/memories/memories3.jpg" alt="Memory 3" loading="lazy">
+                            <div class="carousel-info">
+                                <h4>Together</h4>
+                                <p>2024</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-memory="4">
+                            <img src="assets/memories/memories4.jpg" alt="Memory 4" loading="lazy">
+                            <div class="carousel-info">
+                                <h4>Moments</h4>
+                                <p>2024</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-memory="5">
+                            <img src="assets/memories/memories5.jpg" alt="Memory 5" loading="lazy">
+                            <div class="carousel-info">
+                                <h4>Laughter</h4>
+                                <p>2024</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-nav prev" id="carouselPrev">❮</button>
+                    <button class="carousel-nav next" id="carouselNext">❯</button>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Friendship Stats Dashboard -->
+        <section class="friendship-stats-section">
+            <div class="container">
+                <h2 class="section-title reveal">Our Friendship Stats</h2>
+                <p class="section-subtitle reveal">By the numbers</p>
+                <div class="stats-dashboard">
+                    <div class="stat-card reveal-scale stagger-1">
+                        <div class="stat-icon">👥</div>
+                        <div class="stat-counter" data-target="30">0</div>
+                        <p class="stat-title">Total Friends</p>
+                        <div class="stat-bar">
+                            <div class="stat-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="stat-card reveal-scale stagger-2">
+                        <div class="stat-icon">📸</div>
+                        <div class="stat-counter" data-target="500">0</div>
+                        <p class="stat-title">Memories Captured</p>
+                        <div class="stat-bar">
+                            <div class="stat-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <div class="stat-card reveal-scale stagger-3">
+                        <div class="stat-icon">📅</div>
+                        <div class="stat-counter" data-target="365">0</div>
+                        <p class="stat-title">Days Together</p>
+                        <div class="stat-bar">
+                            <div class="stat-fill" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="stat-card reveal-scale stagger-4">
+                        <div class="stat-icon">⭐</div>
+                        <div class="stat-counter" data-target="100">0</div>
+                        <p class="stat-title">Inside Jokes</p>
+                        <div class="stat-bar">
+                            <div class="stat-fill" style="width: 95%;"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -351,6 +517,7 @@
     </div>
 
     <script src="js/app-stability.js"></script>
+    <script src="js/seo-optimization.js"></script>
     <script src="js/network-monitor.js"></script>
     <script src="js/image-fallback.js"></script>
     <script src="js/performance-monitor.js"></script>
@@ -361,6 +528,7 @@
     <script src="js/carousel-3d-enhanced.js"></script>
     <script src="js/brick-wall-enhanced.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/share-button.js"></script>
     <script src="js/share-website.js"></script>
     <script src="js/wall-frames.js"></script>
     <script src="js/animations.js"></script>
@@ -368,6 +536,8 @@
     <script src="js/instagram-display.js"></script>
     <script src="js/memory-enhancements.js"></script>
     <script src="js/social-features.js"></script>
+    <script src="js/homepage-redesign.js"></script>
+    <script src="js/memory-backgrounds.js"></script>
     <script src="test-stability.js"></script>
 </body>
 </html>

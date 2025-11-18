@@ -20,3 +20,13 @@
   from = "/api/social/*"
   to = "/.netlify/functions/social-sync"
   status = 200
+
+[[redirects]]
+  from = "/api/contact"
+  to = "/.netlify/functions/contact-form"
+  status = 200
+
+[[redirects]]
+  from = "/.netlify/functions/contact"
+  to = "/.netlify/functions/contact-form"
+  status = 200

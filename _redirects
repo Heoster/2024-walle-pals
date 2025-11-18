@@ -1,0 +1,19 @@
+# Netlify redirects for SEO and performance
+
+# Redirect www to non-www
+https://www.2024wallepals.netlify.app/* https://2024wallepals.netlify.app/:splat 301!
+
+# Redirect HTTP to HTTPS
+http://2024wallepals.netlify.app/* https://2024wallepals.netlify.app/:splat 301!
+
+# API redirects
+/api/social-sync /.netlify/functions/social-sync 200
+/api/social/* /.netlify/functions/social-sync 200
+
+# Cache control headers
+/assets/* 200
+/css/* 200
+/js/* 200
+
+# Single page app fallback
+/* /index.html 200

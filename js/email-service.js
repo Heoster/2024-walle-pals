@@ -453,8 +453,8 @@ AUTO-REPLY SENT: Yes (styled HTML email sent to user)
                 console.error('❌ Email sending failed:', error);
 
                 // Fallback: Log to console
-                :');
-                :`);
+                console.log('📧 Admin notification (fallback):', adminMailOptions);
+                console.log('📧 User auto-reply (fallback):', userMailOptions);
                 return {
                     success: true, // Still return success for user experience
                     fallback: true,
