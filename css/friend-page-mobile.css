@@ -1,0 +1,614 @@
+/* Friend Page Mobile Optimization */
+
+/* ===================================
+   MOBILE FIRST APPROACH (320px+)
+   =================================== */
+
+/* Small Mobile (320px - 480px) */
+@media (max-width: 480px) {
+  /* Hero Section */
+  .friend-hero-premium {
+    padding: 4rem 1rem 2rem;
+    min-height: auto;
+  }
+
+  .gradient-orb {
+    filter: blur(80px);
+    opacity: 0.3;
+  }
+
+  .orb-1 {
+    width: 300px;
+    height: 300px;
+    top: -20%;
+    left: -20%;
+  }
+
+  .orb-2 {
+    width: 250px;
+    height: 250px;
+    bottom: -20%;
+    right: -20%;
+  }
+
+  .orb-3 {
+    width: 350px;
+    height: 350px;
+  }
+
+  /* Profile Card */
+  .profile-card-3d {
+    padding: 1.5rem 1rem;
+    border-radius: 20px;
+  }
+
+  .profile-card-3d:hover {
+    transform: translateY(-5px);
+  }
+
+  /* Avatar */
+  .profile-avatar-wrapper {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .avatar-glow {
+    inset: -8px;
+    filter: blur(15px);
+  }
+
+  .profile-avatar {
+    border-width: 3px;
+  }
+
+  /* Text */
+  .profile-emoji {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .profile-name {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .profile-tagline {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Instagram Link */
+  .instagram-link-animated {
+    padding: 0.9rem 1.5rem;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .instagram-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  /* Story */
+  .friend-story {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    border-radius: 10px;
+  }
+
+  .story-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .story-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  /* Gallery Section */
+  .friend-gallery-section {
+    padding: 3rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .gallery-item {
+    border-radius: 15px;
+  }
+
+  .gallery-item:hover {
+    transform: translateY(-5px) scale(1.01);
+  }
+
+  /* Quotes Section */
+  .friendship-quotes-section {
+    padding: 3rem 1rem;
+  }
+
+  .quotes-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .quotes-header p {
+    font-size: 0.95rem;
+  }
+
+  .quotes-carousel {
+    padding: 1.5rem;
+    border-radius: 15px;
+  }
+
+  .quote-text {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  .quote-author {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+  }
+
+  .quote-nav-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+
+  .quote-dots {
+    gap: 0.4rem;
+  }
+
+  .quote-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .random-quote-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Comments Section */
+  .comments-section-premium {
+    padding: 3rem 1rem;
+  }
+
+  .comment-form-premium {
+    max-width: 100%;
+    padding: 1.5rem 1rem;
+    margin: 2rem auto;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 1rem;
+    font-size: 16px; /* Prevents zoom on iOS */
+    border-radius: 10px;
+  }
+
+  .btn-submit-comment {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+  }
+
+  .comment-item {
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .comment-header {
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .comment-avatar {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .comment-author {
+    font-size: 1rem;
+  }
+
+  .comment-text {
+    font-size: 0.95rem;
+  }
+
+  /* Back Section */
+  .back-section {
+    padding: 2rem 1rem;
+  }
+
+  .btn-back {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Toast */
+  .toast-container {
+    right: 0.5rem;
+    left: 0.5rem;
+    top: 80px;
+  }
+
+  .toast {
+    padding: 1rem;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+}
+
+/* Medium Mobile (480px - 768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  /* Hero Section */
+  .friend-hero-premium {
+    padding: 5rem 1.5rem 3rem;
+  }
+
+  .gradient-orb {
+    filter: blur(90px);
+    opacity: 0.35;
+  }
+
+  .orb-1 {
+    width: 400px;
+    height: 400px;
+  }
+
+  .orb-2 {
+    width: 350px;
+    height: 350px;
+  }
+
+  .orb-3 {
+    width: 450px;
+    height: 450px;
+  }
+
+  /* Profile Card */
+  .profile-card-3d {
+    padding: 2rem 1.5rem;
+    border-radius: 25px;
+  }
+
+  /* Avatar */
+  .profile-avatar-wrapper {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto 2rem;
+  }
+
+  .avatar-glow {
+    inset: -9px;
+    filter: blur(18px);
+  }
+
+  /* Text */
+  .profile-name {
+    font-size: 2.2rem;
+  }
+
+  .profile-tagline {
+    font-size: 1.3rem;
+  }
+
+  /* Instagram Link */
+  .instagram-link-animated {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  /* Gallery */
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.2rem;
+  }
+
+  /* Comments */
+  .comment-form-premium {
+    max-width: 100%;
+    padding: 2rem 1.5rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+  }
+
+  /* Back Button */
+  .btn-back {
+    padding: 1.1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+/* ===================================
+   LOVE STORY MOBILE OPTIMIZATION
+   =================================== */
+
+/* Small Mobile Love Story */
+@media (max-width: 480px) {
+  .love-story-section {
+    padding: 3rem 1rem;
+  }
+
+  .story-header .section-title {
+    font-size: 1.5rem;
+  }
+
+  .story-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .music-toggle {
+    padding: 10px 15px;
+    font-size: 0.85rem;
+    gap: 8px;
+  }
+
+  .music-icon {
+    font-size: 1.2rem;
+  }
+
+  .timeline-container::before {
+    left: 15px;
+  }
+
+  .timeline-marker {
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .timeline-content {
+    width: 100%;
+    margin-left: 60px !important;
+    margin-right: 0 !important;
+    padding: 1.2rem;
+  }
+
+  .timeline-date {
+    font-size: 0.8rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .timeline-emoji {
+    font-size: 2rem;
+  }
+
+  .heartbreak-note {
+    padding: 10px;
+    font-size: 0.8rem;
+  }
+
+  .reflection-card {
+    padding: 1.5rem;
+  }
+
+  .reflection-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .reflection-card p {
+    font-size: 0.9rem;
+  }
+}
+
+/* Medium Mobile Love Story */
+@media (min-width: 481px) and (max-width: 768px) {
+  .love-story-section {
+    padding: 4rem 1.5rem;
+  }
+
+  .story-header .section-title {
+    font-size: 2rem;
+  }
+
+  .timeline-container::before {
+    left: 25px;
+  }
+
+  .timeline-marker {
+    left: 25px;
+    width: 50px;
+    height: 50px;
+  }
+
+  .timeline-content {
+    margin-left: 75px !important;
+    padding: 1.5rem;
+  }
+
+  .reflection-card {
+    padding: 2rem;
+  }
+}
+
+/* ===================================
+   TOUCH DEVICE OPTIMIZATIONS
+   =================================== */
+
+@media (hover: none) and (pointer: coarse) {
+  /* Disable hover effects on touch devices */
+  .profile-card-3d:hover {
+    transform: none;
+  }
+
+  .gallery-item:hover {
+    transform: none;
+  }
+
+  .instagram-link-animated:hover {
+    transform: none;
+  }
+
+  .btn-back:hover {
+    transform: none;
+  }
+
+  /* Increase touch target sizes */
+  .btn-submit-comment,
+  .btn-back,
+  .instagram-link-animated,
+  .quote-nav-btn {
+    min-height: 48px;
+    min-width: 48px;
+  }
+
+  /* Better spacing for touch */
+  .form-group input,
+  .form-group textarea {
+    min-height: 44px;
+  }
+
+  /* Remove double tap zoom delay */
+  button,
+  a,
+  input {
+    touch-action: manipulation;
+  }
+}
+
+/* ===================================
+   LANDSCAPE ORIENTATION
+   =================================== */
+
+@media (max-width: 768px) and (orientation: landscape) {
+  .friend-hero-premium {
+    padding: 3rem 1rem 2rem;
+    min-height: auto;
+  }
+
+  .profile-avatar-wrapper {
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-name {
+    font-size: 1.5rem;
+  }
+
+  .profile-tagline {
+    font-size: 1rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 0.8rem;
+  }
+
+  .love-story-section {
+    padding: 2rem 1rem;
+  }
+
+  .timeline-content {
+    padding: 1rem;
+  }
+}
+
+/* ===================================
+   ACCESSIBILITY & PERFORMANCE
+   =================================== */
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .profile-card-3d:hover {
+    transform: none;
+  }
+
+  .gallery-item:hover {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: more) {
+  .profile-card-3d {
+    border-width: 2px;
+  }
+
+  .btn-submit-comment {
+    border: 2px solid white;
+  }
+
+  .comment-form-premium {
+    border-width: 2px;
+  }
+}
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+  .profile-tagline {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  .story-text {
+    color: rgba(255, 255, 255, 0.85);
+  }
+}
+
+/* ===================================
+   PRINT STYLES
+   =================================== */
+
+@media print {
+  .friend-hero-premium,
+  .navbar-premium,
+  .back-section,
+  .toast-container,
+  .comments-section-premium {
+    display: none;
+  }
+
+  .friend-page {
+    background: white;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

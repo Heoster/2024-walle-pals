@@ -1,0 +1,238 @@
+/* Special Friend Tag Styles */
+
+.special-friend-tag {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  animation: tagPulse 2s ease-in-out infinite;
+  position: relative;
+  overflow: hidden;
+}
+
+.special-friend-tag::before {
+  content: '✨';
+  margin-right: 0.5rem;
+}
+
+.special-friend-tag::after {
+  content: '✨';
+  margin-left: 0.5rem;
+}
+
+@keyframes tagPulse {
+  0%, 100% {
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 6px 25px rgba(102, 126, 234, 0.5);
+    transform: scale(1.02);
+  }
+}
+
+/* Tag Variants */
+
+.special-friend-tag.leader {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3);
+}
+
+.special-friend-tag.leader::before {
+  content: '👑';
+}
+
+.special-friend-tag.leader::after {
+  content: '👑';
+}
+
+.special-friend-tag.hero {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
+}
+
+.special-friend-tag.hero::before {
+  content: '🦸';
+}
+
+.special-friend-tag.hero::after {
+  content: '🦸';
+}
+
+.special-friend-tag.creative {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  box-shadow: 0 4px 15px rgba(250, 112, 154, 0.3);
+}
+
+.special-friend-tag.creative::before {
+  content: '🎨';
+}
+
+.special-friend-tag.creative::after {
+  content: '🎨';
+}
+
+.special-friend-tag.wisdom {
+  background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+  box-shadow: 0 4px 15px rgba(48, 207, 208, 0.3);
+}
+
+.special-friend-tag.wisdom::before {
+  content: '🦉';
+}
+
+.special-friend-tag.wisdom::after {
+  content: '🦉';
+}
+
+.special-friend-tag.energy {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa502 100%);
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+}
+
+.special-friend-tag.energy::before {
+  content: '⚡';
+}
+
+.special-friend-tag.energy::after {
+  content: '⚡';
+}
+
+.special-friend-tag.heart {
+  background: linear-gradient(135deg, #ff6b9d 0%, #c44569 100%);
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.3);
+}
+
+.special-friend-tag.heart::before {
+  content: '💖';
+}
+
+.special-friend-tag.heart::after {
+  content: '💖';
+}
+
+/* Tag in Profile Card */
+.profile-card-3d .special-friend-tag {
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Tag in Friend Frame */
+.friend-frame .special-friend-tag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.75rem;
+  margin: 0;
+  z-index: 10;
+}
+
+.friend-frame .special-friend-tag::before,
+.friend-frame .special-friend-tag::after {
+  margin: 0 0.25rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .special-friend-tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.75rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .profile-card-3d .special-friend-tag {
+    margin-top: 0.8rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .special-friend-tag {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.7rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .special-friend-tag::before,
+  .special-friend-tag::after {
+    margin: 0 0.2rem;
+  }
+
+  .profile-card-3d .special-friend-tag {
+    margin-top: 0.6rem;
+    margin-bottom: 0.8rem;
+  }
+}
+
+/* Animation Variants */
+@keyframes tagGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  }
+}
+
+.special-friend-tag.glow {
+  animation: tagGlow 2s ease-in-out infinite;
+}
+
+@keyframes tagBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
+
+.special-friend-tag.bounce {
+  animation: tagBounce 1.5s ease-in-out infinite;
+}
+
+@keyframes tagSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.special-friend-tag.spin {
+  animation: tagSpin 3s linear infinite;
+}
+
+/* Hover Effects */
+.special-friend-tag:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.friend-frame:hover .special-friend-tag {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .special-friend-tag {
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.5);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .special-friend-tag {
+    animation: none;
+    box-shadow: none;
+  }
+}
