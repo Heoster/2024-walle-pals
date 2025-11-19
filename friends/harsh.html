@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="../css/friendship-quotes.css">
   <link rel="stylesheet" href="../css/special-friends.css">
   <link rel="stylesheet" href="../css/responsive-enhanced.css">
+  <link rel="stylesheet" href="../css/mobile-menu-enhanced.css">
   
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
@@ -62,6 +63,73 @@
       </button>
     </nav>
   </header>
+
+  <!-- Enhanced Mobile Menu -->
+  <div class="mobile-menu-container">
+    <div class="mobile-menu-overlay"></div>
+    <div class="mobile-menu-panel">
+      <div class="mobile-menu-header">
+        <h2 class="mobile-menu-title">Menu</h2>
+        <button class="mobile-menu-close" aria-label="Close menu">✕</button>
+      </div>
+
+      <div class="mobile-menu-content">
+        <!-- Navigation Section -->
+        <div class="mobile-menu-section">
+          <div class="mobile-menu-section-title">Navigation</div>
+          <a href="../index.html" class="mobile-menu-item">
+            <span class="mobile-menu-item-icon">🏠</span>
+            <span>Home</span>
+          </a>
+          <a href="../index.html#wall-of-frames" class="mobile-menu-item">
+            <span class="mobile-menu-item-icon">👥</span>
+            <span>All Friends</span>
+          </a>
+          <a href="../memories.html" class="mobile-menu-item">
+            <span class="mobile-menu-item-icon">📸</span>
+            <span>Memories</span>
+          </a>
+          <a href="../gallery.html" class="mobile-menu-item">
+            <span class="mobile-menu-item-icon">🎨</span>
+            <span>Gallery</span>
+          </a>
+        </div>
+
+        <!-- Page Sections -->
+        <div class="mobile-menu-section">
+          <div class="mobile-menu-section-title">On This Page</div>
+          <a href="#gallery-grid" class="mobile-menu-item">
+            <span class="mobile-menu-item-icon">📷</span>
+            <span>Photo Gallery</span>
+          </a>
+          <a href="#quotes-carousel" class="mobile-menu-item">
+            <span class="mobile-menu-item-icon">✨</span>
+            <span>Friendship Wisdom</span>
+          </a>
+          <a href="#commentForm" class="mobile-menu-item">
+            <span class="mobile-menu-item-icon">💬</span>
+            <span>Leave a Message</span>
+          </a>
+        </div>
+
+        <!-- Social Links -->
+        <div class="mobile-menu-section">
+          <div class="mobile-menu-section-title">Connect</div>
+          <a href="https://instagram.com/codeex._.heoster" target="_blank" class="mobile-menu-item">
+            <span class="mobile-menu-item-icon">📱</span>
+            <span>Instagram</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="mobile-menu-footer">
+        <p class="mobile-menu-footer-text">Walle Pals 2024 © All Rights Reserved</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Menu Button -->
+  <button class="floating-menu-btn" aria-label="Open navigation menu" title="Open Menu">☰</button>
 
   <!-- Friend Hero -->
   <section class="friend-hero-premium">
@@ -202,6 +270,7 @@
   <!-- Scripts -->
   <script src="../js/hero-enhanced.js"></script>
   <script src="../js/navbar-premium.js"></script>
+  <script src="../js/mobile-menu-enhanced.js"></script>
   <script src="../js/friendship-quotes.js"></script>
   <script src="../js/special-friends.js"></script>
   <script src="../js/friend-page-enhanced.js"></script>
