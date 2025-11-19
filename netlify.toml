@@ -27,11 +27,6 @@
   status = 200
 
 [[redirects]]
-  from = "/.netlify/functions/contact"
-  to = "/.netlify/functions/contact-form"
-  status = 200
-
-[[redirects]]
   from = "/api/upload-memory"
   to = "/.netlify/functions/upload-memory"
   status = 200
